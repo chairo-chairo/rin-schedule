@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>凛くんの4月からの日程</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Gantt bars — percentage-based absolute positioning */
+    .g-bar {
+      position: absolute; top: 0; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.63em; font-weight: 700;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      border-radius: 4px; padding: 0 4px;
+    }
+    @media print {
+      @page { size: A4 portrait; margin: 15mm 12mm; }
+      .no-print { display: none !important; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .tab-pane { display: none !important; }
+      .tab-pane.active { display: block !important; }
+      body { background: white; padding: 0; }
+      .section-card { box-shadow: none; border: 1px solid #e5e7eb; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 text-sm leading-relaxed p-3 sm:p-5">
+
+  <h1 class="text-center text-xl font-bold text-gray-800 mb-1">🌸 凛くんの4月からの日程</h1>
+  <p class="text-center text-gray-400 text-xs mb-5">2025年4月〜　津島小学校 新1年生</p>
+
+  <button onclick="window.print()"
+    class="no-print block w-full max-w-xs mx-auto mb-6 py-3 px-4 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 text-white font-bold rounded-xl text-sm tracking-wide transition-colors">
+    🖨️ A4で印刷する
+  </button>
+
+  <!-- ===== 小学校 ===== -->
+  <section class="section-card bg-white rounded-2xl shadow-sm mb-5 overflow-hidden">
+    <div class="flex items-center gap-2 px-4 py-3 bg-blue-500 text-white font-bold text-sm">
+      🏫 小学校（津島小学校）
+    </div>
+
+    <p class="px-4 pt-3 pb-1 font-bold text-xs text-blue-500">▼ 4月の予定</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="bg-blue-50 text-blue-600 border-b border-blue-100">
+            <th class="py-2 px-3 text-left font-semibold whitespace-nowrap">日付</th>
+            <th class="py-2 px-3 text-left font-semibold">内容</th>
+            <th class="py-2 px-3 text-left font-semibold whitespace-nowrap">下校目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/10（金）</td>
+            <td class="py-2 px-3">入学式</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">11:30頃</td>
+          </tr>
+          <tr class="bg-gray-50 border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/13（月）</td>
+            <td class="py-2 px-3">3校時下校</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">11:40頃</td>
+          </tr>
+          <tr class="border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/14（火）</td>
+            <td class="py-2 px-3">3校時下校</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">11:40頃</td>
+          </tr>
+          <tr class="bg-gray-50 border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/15（水）</td>
+            <td class="py-2 px-3">3校時下校</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">11:40頃</td>
+          </tr>
+          <tr class="border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/16（木）</td>
+            <td class="py-2 px-3">給食開始・4校時下校</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:30頃</td>
+          </tr>
+          <tr class="bg-gray-50 border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/17（金）</td>
+            <td class="py-2 px-3">4校時下校</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:30頃</td>
+          </tr>
+          <tr class="border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/20（月）</td>
+            <td class="py-2 px-3">短縮4校時下校・身体測定・希望懇談</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:10頃</td>
+          </tr>
+          <tr class="bg-gray-50 border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/21（火）</td>
+            <td class="py-2 px-3">短縮4校時下校・希望懇談</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:10頃</td>
+          </tr>
+          <tr class="border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/22（水）</td>
+            <td class="py-2 px-3">短縮4校時下校・希望懇談</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:10頃</td>
+          </tr>
+          <tr class="bg-gray-50 border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/23（木）</td>
+            <td class="py-2 px-3">短縮4校時下校・希望懇談</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:10頃</td>
+          </tr>
+          <tr class="border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/24（金）</td>
+            <td class="py-2 px-3">短縮4校時下校・希望懇談</td>
+            <td class="py-2 px-3 text-orange-500 font-bold whitespace-nowrap">13:10頃</td>
+          </tr>
+          <tr class="bg-gray-50 border-b border-gray-100 hover:bg-blue-50">
+            <td class="py-2 px-3 font-bold whitespace-nowrap text-gray-700">4/27（月）〜</td>
+            <td class="py-2 px-3">5校時授業開始</td>
+            <td class="py-2 px-3 text-gray-400 whitespace-nowrap">–</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="py-2 px-3 text-gray-400 italic text-xs">
+              ※ 現在の予定で変更になる場合があります。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="px-4 pt-3 pb-1 font-bold text-xs text-blue-500">▼ 5月以降（通常時間割）</p>
+    <div class="mx-4 mb-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-3 text-xs">
+      <p class="font-bold text-blue-600 mb-1">授業時間</p>
+      <p>月・火・木・金：9:30 〜 14:50（4〜5校時）</p>
+      <p>水曜日：9:30 〜 14:50（5時限のみ）</p>
+    </div>
+  </section>
+
+  <!-- ===== 放課後デイ ===== -->
+  <section class="section-card bg-white rounded-2xl shadow-sm mb-5 overflow-hidden">
+    <div class="flex items-center gap-2 px-4 py-3 bg-emerald-500 text-white font-bold text-sm">
+      🌿 放課後デイ・日中一時支援（週間）
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 p-4">
+
+      <!-- 月 -->
+      <div class="rounded-xl overflow-hidden shadow-sm">
+        <div class="bg-amber-400 text-white font-bold text-sm px-3 py-2">月曜日</div>
+        <div class="bg-white border border-gray-200 border-t-0 rounded-b-xl p-3 text-xs space-y-1">
+          <p class="font-bold text-gray-800">放課後デイ エフ</p>
+          <p class="text-emerald-600 font-bold">9:00 〜 19:00</p>
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり（5月まで）</span>
+          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市北区今7丁目6-16 2階</p>
+        </div>
+      </div>
+
+      <!-- 火 -->
+      <div class="rounded-xl overflow-hidden shadow-sm">
+        <div class="bg-blue-500 text-white font-bold text-sm px-3 py-2">火曜日</div>
+        <div class="bg-white border border-gray-200 border-t-0 rounded-b-xl p-3 text-xs space-y-1">
+          <p class="font-bold text-gray-800">ウェルハニーバン</p>
+          <p class="text-emerald-600 font-bold">14:00 〜 17:00</p>
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり</span>
+          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市北区 東島田町2-7-10</p>
+        </div>
+      </div>
+
+      <!-- 水 -->
+      <div class="rounded-xl overflow-hidden shadow-sm">
+        <div class="bg-violet-500 text-white font-bold text-sm px-3 py-2">水曜日</div>
+        <div class="bg-white border border-gray-200 border-t-0 rounded-b-xl p-3 text-xs space-y-1">
+          <p class="font-bold text-gray-800">日中一時 あるてみす</p>
+          <p class="text-emerald-600 font-bold">9:00 〜 18:00</p>
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり</span>
+          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市中区中島306-1<br>CASA NARITOMO 102</p>
+        </div>
+      </div>
+
+      <!-- 木 -->
+      <div class="rounded-xl overflow-hidden shadow-sm">
+        <div class="bg-blue-500 text-white font-bold text-sm px-3 py-2">木曜日</div>
+        <div class="bg-white border border-gray-200 border-t-0 rounded-b-xl p-3 text-xs space-y-1">
+          <p class="font-bold text-gray-800">ウェルハニーバン</p>
+          <p class="text-emerald-600 font-bold">14:00 〜 17:00</p>
+          <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full">送迎なし</span>
+          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市北区 東島田町2-7-10</p>
+        </div>
+      </div>
+
+      <!-- 金 -->
+      <div class="rounded-xl overflow-hidden shadow-sm">
+        <div class="bg-violet-500 text-white font-bold text-sm px-3 py-2">金曜日</div>
+        <div class="bg-white border border-gray-200 border-t-0 rounded-b-xl p-3 text-xs space-y-1">
+          <p class="font-bold text-gray-800">日中一時 あるてみす</p>
+          <p class="text-emerald-600 font-bold">9:00 〜 18:00</p>
+          <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり</span>
+          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市中区中島306-1<br>CASA NARITOMO 102</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ガントチャート ===== -->
+  <!--
+    時刻軸: 9:00〜19:00 = 600分 = 100%
+    各時刻:  9:00=0%  9:30=5%  11:40=26.67%  13:10=41.67%
+             13:30=45%  14:00=50%  14:50=58.33%
+             17:00=80%  18:00=90%  19:00=100%
+
+    バー重ね順(z-index):
+      1: bar-svc-bg  … サービス範囲（薄い緑、テキストなし）
+      2: bar-school  … 学校（青）
+      3: bar-svc     … サービスラベル（学校終了後のみ）
+      4: bar-gap     … 空白時間（黄）
+      0: bar-uncov   … 未カバー（薄いグレー）
+  -->
+  <section class="section-card bg-white rounded-2xl shadow-sm mb-5 overflow-hidden">
+    <div class="flex items-center gap-2 px-4 py-3 bg-indigo-500 text-white font-bold text-sm">
+      📊 空白時間の可視化
+    </div>
+
+    <!-- タブボタン -->
+    <div class="no-print flex gap-2 px-4 pt-3">
+      <button id="btn-may" onclick="switchTab('may')"
+        class="px-4 py-1.5 border-2 border-indigo-500 rounded-full text-xs font-bold bg-indigo-500 text-white transition-colors">
+        5月以降（通常）
+      </button>
+      <button id="btn-april" onclick="switchTab('april')"
+        class="px-4 py-1.5 border-2 border-indigo-500 rounded-full text-xs font-bold bg-white text-indigo-500 transition-colors">
+        4月（移行期）
+      </button>
+    </div>
+
+    <!-- 凡例 -->
+    <div class="flex flex-wrap gap-x-4 gap-y-1.5 px-4 pt-3 pb-1 text-xs text-gray-600">
+      <span class="flex items-center gap-1.5"><span class="inline-block w-4 h-4 rounded bg-blue-500 shrink-0"></span>小学校</span>
+      <span class="flex items-center gap-1.5"><span class="inline-block w-4 h-4 rounded bg-emerald-500/25 border border-emerald-500/40 shrink-0"></span>サービス（学校中）</span>
+      <span class="flex items-center gap-1.5"><span class="inline-block w-4 h-4 rounded bg-emerald-500 shrink-0"></span>サービス（学校後）</span>
+      <span class="flex items-center gap-1.5"><span class="inline-block w-4 h-4 rounded bg-amber-400 shrink-0"></span>空白時間</span>
+    </div>
+
+    <!-- ===== 5月以降タブ ===== -->
+    <!-- 学校: 9:30-14:50 → left=5%, width=53.33% -->
+    <div id="tab-may" class="tab-pane active">
+      <div class="px-4 pb-4 pt-2 overflow-x-auto">
+        <div class="min-w-[340px]">
+
+          <!-- 時刻軸 -->
+          <div class="flex ml-16 mb-1 relative h-4">
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:0%">9時</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:10%">10</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:20%">11</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:30%">12</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:40%">13</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:50%">14</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:60%">15</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:70%">16</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:80%">17</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:90%">18</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:100%">19</span>
+          </div>
+
+          <!-- 月: エフ 9:00-19:00 / 学校 9:30-14:50 -->
+          <!-- svc bg:0%〜100%  school:5%/53.33%  svc text:58.33%/41.67% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">月<br><span class="text-amber-500">エフ</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:100%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:53.33%;z-index:2">学校 9:30-14:50</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:58.33%;width:41.67%;z-index:3">エフ 〜19:00</div>
+            </div>
+          </div>
+
+          <!-- 火: ハニーバン 14:00-17:00（送迎あり）/ 学校 9:30-14:50 -->
+          <!-- svc bg:50%/30%  uncov:80%/20%  school:5%/53.33%  svc text:58.33%/21.67% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">火<br><span class="text-blue-500">ハニーバン</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-gray-200" style="left:80%;width:20%;z-index:0"></div>
+              <div class="g-bar bg-emerald-500/25" style="left:50%;width:30%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:53.33%;z-index:2">学校 9:30-14:50</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:58.33%;width:21.67%;z-index:3">ハニーバン 〜17:00</div>
+            </div>
+          </div>
+
+          <!-- 水: あるてみす 9:00-18:00 / 学校 9:30-14:50 -->
+          <!-- svc bg:0%/90%  school:5%/53.33%  svc text:58.33%/31.67% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">水<br><span class="text-violet-500">あるてみす</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:90%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:53.33%;z-index:2">学校 9:30-14:50</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:58.33%;width:31.67%;z-index:3">あるてみす 〜18:00</div>
+            </div>
+          </div>
+
+          <!-- 木: ハニーバン 14:00-17:00（送迎なし）/ 学校 9:30-14:50 -->
+          <!-- svc bg:50%/30%  gap:80%/20%  school:5%/53.33%  svc text:58.33%/21.67% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">木<br><span class="text-red-500 text-[10px]">ハニーバン<br>送迎なし</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:80%;width:20%;z-index:4">17時以降 空白</div>
+              <div class="g-bar bg-emerald-500/25" style="left:50%;width:30%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:53.33%;z-index:2">学校 9:30-14:50</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:58.33%;width:21.67%;z-index:3">ハニーバン 〜17:00</div>
+            </div>
+          </div>
+
+          <!-- 金: あるてみす 9:00-18:00 / 学校 9:30-14:50 -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">金<br><span class="text-violet-500">あるてみす</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:90%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:53.33%;z-index:2">学校 9:30-14:50</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:58.33%;width:31.67%;z-index:3">あるてみす 〜18:00</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="px-4 pb-3 text-xs text-gray-400">※ 火・木は送迎で学校お迎え（実質14:50〜）。木は17時以降の対応が必要です。</p>
+    </div>
+
+    <!-- ===== 4月タブ ===== -->
+    <div id="tab-april" class="tab-pane hidden">
+      <div class="px-4 pb-4 pt-2 overflow-x-auto">
+        <div class="min-w-[340px]">
+
+          <!-- 時刻軸 (共通) -->
+          <div class="flex ml-16 mb-1 relative h-4">
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:0%">9時</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:10%">10</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:20%">11</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:30%">12</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:40%">13</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:50%">14</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:60%">15</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:70%">16</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:80%">17</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:90%">18</span>
+            <span class="absolute text-[10px] text-gray-400 -translate-x-1/2" style="left:100%">19</span>
+          </div>
+
+          <!-- ===== フェーズ1: 4/13〜15（月・火・水）下校 11:40 ===== -->
+          <!-- 学校: left=5%, width=21.67% (130min/600) -->
+          <p class="ml-16 text-xs font-bold text-indigo-500 mt-2 mb-1">4/13〜15（月・火・水）下校 11:40</p>
+
+          <!-- 月: エフ全日 / school:5%/21.67%  svc:26.67%/73.33% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">月<br><span class="text-amber-500">エフ</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:100%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:21.67%;z-index:2">学校 〜11:40</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:26.67%;width:73.33%;z-index:3">エフ 〜19:00</div>
+            </div>
+          </div>
+
+          <!-- 火: gap:26.67%/23.33%  svc bg:50%/30%  school:5%/21.67%  svc:50%/30% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">火<br><span class="text-blue-500">ハニーバン</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-gray-200" style="left:80%;width:20%;z-index:0"></div>
+              <div class="g-bar bg-emerald-500/25" style="left:50%;width:30%;z-index:1"></div>
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:26.67%;width:23.33%;z-index:4">空白 11:40〜14:00</div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:21.67%;z-index:2">学校 〜11:40</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:50%;width:30%;z-index:3">ハニーバン 14〜17時</div>
+            </div>
+          </div>
+
+          <!-- 水: あるてみす / svc bg:0%/90%  school:5%/21.67%  svc:26.67%/63.33% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">水<br><span class="text-violet-500">あるてみす</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:90%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:21.67%;z-index:2">学校 〜11:40</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:26.67%;width:63.33%;z-index:3">あるてみす 〜18:00</div>
+            </div>
+          </div>
+
+          <!-- 区切り -->
+          <div class="ml-16 border-t border-dashed border-gray-200 my-3"></div>
+
+          <!-- ===== フェーズ2: 4/16〜17（木・金）下校 13:30 ===== -->
+          <!-- 学校: left=5%, width=40% (240min/600) -->
+          <p class="ml-16 text-xs font-bold text-indigo-500 mb-1">4/16〜17（木・金）下校 13:30（給食開始）</p>
+
+          <!-- 木: 送迎なし / svc bg:50%/30%  gap:45%/5%  school:5%/40%  svc:50%/30%  gap:80%/20% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">木<br><span class="text-red-500 text-[10px]">ハニーバン<br>送迎なし</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:80%;width:20%;z-index:4">17時以降 空白</div>
+              <div class="g-bar bg-emerald-500/25" style="left:50%;width:30%;z-index:1"></div>
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:45%;width:5%;z-index:4"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:40%;z-index:2">学校 〜13:30</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:50%;width:30%;z-index:3">ハニーバン 14〜17時</div>
+            </div>
+          </div>
+
+          <!-- 金: あるてみす / svc bg:0%/90%  school:5%/40%  svc:45%/45% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">金<br><span class="text-violet-500">あるてみす</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:90%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:40%;z-index:2">学校 〜13:30</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:45%;width:45%;z-index:3">あるてみす 〜18:00</div>
+            </div>
+          </div>
+
+          <!-- 区切り -->
+          <div class="ml-16 border-t border-dashed border-gray-200 my-3"></div>
+
+          <!-- ===== フェーズ3: 4/20〜24（月〜金）下校 13:10 ===== -->
+          <!-- 学校: left=5%, width=36.67% (220min/600) -->
+          <p class="ml-16 text-xs font-bold text-indigo-500 mb-1">4/20〜24（月〜金）下校 13:10（短縮4校時）</p>
+
+          <!-- 月: エフ全日 / school:5%/36.67%  svc:41.67%/58.33% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">月<br><span class="text-amber-500">エフ</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:100%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:36.67%;z-index:2">学校 〜13:10</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:41.67%;width:58.33%;z-index:3">エフ 〜19:00</div>
+            </div>
+          </div>
+
+          <!-- 火: gap:41.67%/8.33%  svc bg:50%/30%  school:5%/36.67%  svc:50%/30% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">火<br><span class="text-blue-500">ハニーバン</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-gray-200" style="left:80%;width:20%;z-index:0"></div>
+              <div class="g-bar bg-emerald-500/25" style="left:50%;width:30%;z-index:1"></div>
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:41.67%;width:8.33%;z-index:4">空白</div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:36.67%;z-index:2">学校 〜13:10</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:50%;width:30%;z-index:3">ハニーバン 14〜17時</div>
+            </div>
+          </div>
+
+          <!-- 水: あるてみす / svc bg:0%/90%  school:5%/36.67%  svc:41.67%/48.33% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">水<br><span class="text-violet-500">あるてみす</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:90%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:36.67%;z-index:2">学校 〜13:10</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:41.67%;width:48.33%;z-index:3">あるてみす 〜18:00</div>
+            </div>
+          </div>
+
+          <!-- 木: 送迎なし / gap:41.67%/8.33%  svc bg:50%/30%  school:5%/36.67%  svc:50%/30%  gap:80%/20% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">木<br><span class="text-red-500 text-[10px]">ハニーバン<br>送迎なし</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:80%;width:20%;z-index:4">17時以降 空白</div>
+              <div class="g-bar bg-emerald-500/25" style="left:50%;width:30%;z-index:1"></div>
+              <div class="g-bar bg-amber-400 text-amber-900" style="left:41.67%;width:8.33%;z-index:4">空白</div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:36.67%;z-index:2">学校 〜13:10</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:50%;width:30%;z-index:3">ハニーバン 14〜17時</div>
+            </div>
+          </div>
+
+          <!-- 金: あるてみす / svc bg:0%/90%  school:5%/36.67%  svc:41.67%/48.33% -->
+          <div class="flex items-center mb-2">
+            <div class="w-16 shrink-0 text-xs font-bold text-gray-600 leading-tight">金<br><span class="text-violet-500">あるてみす</span></div>
+            <div class="flex-1 h-8 bg-gray-100 rounded-lg relative overflow-hidden">
+              <div class="g-bar bg-emerald-500/25" style="left:0%;width:90%;z-index:1"></div>
+              <div class="g-bar bg-blue-500 text-white" style="left:5%;width:36.67%;z-index:2">学校 〜13:10</div>
+              <div class="g-bar bg-emerald-500 text-white" style="left:41.67%;width:48.33%;z-index:3">あるてみす 〜18:00</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="px-4 pb-3 text-xs text-gray-400">※ 黄色が空白時間（対応が必要な時間帯）です。火曜は送迎ありのため実際の空白は短くなる可能性があります。</p>
+    </div>
+
+  </section>
+
+  <footer class="text-center text-gray-300 text-xs pb-4">
+    作成日：2025年3月　※内容に変更が生じた場合はご連絡ください
+  </footer>
+
+  <script>
+    function switchTab(id) {
+      ['may', 'april'].forEach(name => {
+        const pane = document.getElementById('tab-' + name);
+        const btn  = document.getElementById('btn-' + name);
+        const isActive = name === id;
+        pane.classList.toggle('active', isActive);
+        pane.classList.toggle('hidden', !isActive);
+        btn.classList.toggle('bg-indigo-500', isActive);
+        btn.classList.toggle('text-white', isActive);
+        btn.classList.toggle('bg-white', !isActive);
+        btn.classList.toggle('text-indigo-500', !isActive);
+      });
+    }
+  </script>
+
+</body>
+</html>
