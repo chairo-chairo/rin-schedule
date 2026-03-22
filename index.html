@@ -143,7 +143,10 @@
           <p class="font-bold text-gray-800">放課後デイ エフ</p>
           <p class="text-emerald-600 font-bold">9:00 〜 19:00</p>
           <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり（5月まで）</span>
-          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市北区今7丁目6-16 2階</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=岡山市北区今7丁目6-16" target="_blank" rel="noopener"
+            class="text-blue-400 hover:text-blue-600 text-xs leading-tight pt-1 underline underline-offset-2 block">
+            📍 岡山市北区今7丁目6-16 2階
+          </a>
         </div>
       </div>
 
@@ -154,7 +157,10 @@
           <p class="font-bold text-gray-800">ウェルハニーバン</p>
           <p class="text-emerald-600 font-bold">14:00 〜 17:00</p>
           <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり</span>
-          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市北区 東島田町2-7-10</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=岡山市北区東島田町2-7-10" target="_blank" rel="noopener"
+            class="text-blue-400 hover:text-blue-600 text-xs leading-tight pt-1 underline underline-offset-2 block">
+            📍 岡山市北区 東島田町2-7-10
+          </a>
         </div>
       </div>
 
@@ -165,7 +171,10 @@
           <p class="font-bold text-gray-800">日中一時 あるてみす</p>
           <p class="text-emerald-600 font-bold">9:00 〜 18:00</p>
           <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり</span>
-          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市中区中島306-1<br>CASA NARITOMO 102</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=岡山市中区中島306-1+CASA+NARITOMO" target="_blank" rel="noopener"
+            class="text-blue-400 hover:text-blue-600 text-xs leading-tight pt-1 underline underline-offset-2 block">
+            📍 岡山市中区中島306-1<br>CASA NARITOMO 102
+          </a>
         </div>
       </div>
 
@@ -176,7 +185,10 @@
           <p class="font-bold text-gray-800">ウェルハニーバン</p>
           <p class="text-emerald-600 font-bold">14:00 〜 17:00</p>
           <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full">送迎なし</span>
-          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市北区 東島田町2-7-10</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=岡山市北区東島田町2-7-10" target="_blank" rel="noopener"
+            class="text-blue-400 hover:text-blue-600 text-xs leading-tight pt-1 underline underline-offset-2 block">
+            📍 岡山市北区 東島田町2-7-10
+          </a>
         </div>
       </div>
 
@@ -187,7 +199,10 @@
           <p class="font-bold text-gray-800">日中一時 あるてみす</p>
           <p class="text-emerald-600 font-bold">9:00 〜 18:00</p>
           <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full">送迎あり</span>
-          <p class="text-gray-400 text-xs leading-tight pt-1">岡山市中区中島306-1<br>CASA NARITOMO 102</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=岡山市中区中島306-1+CASA+NARITOMO" target="_blank" rel="noopener"
+            class="text-blue-400 hover:text-blue-600 text-xs leading-tight pt-1 underline underline-offset-2 block">
+            📍 岡山市中区中島306-1<br>CASA NARITOMO 102
+          </a>
         </div>
       </div>
 
@@ -215,13 +230,13 @@
 
     <!-- タブボタン -->
     <div class="no-print flex gap-2 px-4 pt-3">
-      <button id="btn-may" onclick="switchTab('may')"
-        class="px-4 py-1.5 border-2 border-indigo-500 rounded-full text-xs font-bold bg-indigo-500 text-white transition-colors">
-        5月以降（通常）
-      </button>
       <button id="btn-april" onclick="switchTab('april')"
-        class="px-4 py-1.5 border-2 border-indigo-500 rounded-full text-xs font-bold bg-white text-indigo-500 transition-colors">
+        class="px-4 py-1.5 border-2 border-indigo-500 rounded-full text-xs font-bold bg-indigo-500 text-white transition-colors">
         4月（移行期）
+      </button>
+      <button id="btn-may" onclick="switchTab('may')"
+        class="px-4 py-1.5 border-2 border-indigo-500 rounded-full text-xs font-bold bg-white text-indigo-500 transition-colors">
+        5月以降（通常）
       </button>
     </div>
 
@@ -235,7 +250,7 @@
 
     <!-- ===== 5月以降タブ ===== -->
     <!-- 学校: 9:30-14:50 → left=5%, width=53.33% -->
-    <div id="tab-may" class="tab-pane active">
+    <div id="tab-may" class="tab-pane hidden">
       <div class="px-4 pb-4 pt-2 overflow-x-auto">
         <div class="min-w-[340px]">
 
@@ -316,7 +331,7 @@
     </div>
 
     <!-- ===== 4月タブ ===== -->
-    <div id="tab-april" class="tab-pane hidden">
+    <div id="tab-april" class="tab-pane active">
       <div class="px-4 pb-4 pt-2 overflow-x-auto">
         <div class="min-w-[340px]">
 
