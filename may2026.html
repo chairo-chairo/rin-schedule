@@ -50,13 +50,13 @@
 </head>
 <body class="text-gray-700 text-sm leading-relaxed p-3 sm:p-5">
 
-  <h1 class="text-center text-xl font-bold text-gray-700 mb-1">🌿 凛くんの5月下校予定</h1>
+  <h1 class="text-center text-xl font-bold text-gray-700 mb-1 flex items-center justify-center gap-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22C4 16 9 12 17 9"/><path d="M17 9C19 5 21 2 22 2C22 8 19 16 13 20C9 22 4 22 2 22"/></svg> 凛くんの5月下校予定</h1>
   <p class="text-center text-gray-400 text-xs mb-2">2026年5月　津島小学校　5時間授業</p>
 
   <!-- 注意事項 -->
   <div class="max-w-2xl mx-auto mb-4 rounded-r-xl px-4 py-3 text-xs font-bold border-l-4"
        style="background:#f5e8cc; border-color:#c8a050; color:#7a5a1a;">
-    ⚠️ 注意事項：教室まで迎えにきてください
+    <svg class="inline-block align-middle shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L21 20H3L12 3Z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18.5" r="0.6" fill="currentColor" stroke="none"/></svg> 注意事項：教室まで迎えにきてください
   </div>
 
   <!-- 下校時間ルール -->
@@ -78,12 +78,12 @@
     <button onclick="window.print()"
       class="py-2 px-5 text-white font-bold rounded-xl text-sm transition-colors"
       style="background:#7a8a98;" onmouseover="this.style.background='#6a7a88'" onmouseout="this.style.background='#7a8a98'">
-      🖨️ 印刷する
+      <svg class="inline-block align-middle mr-1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> 印刷する
     </button>
     <button id="pdf-btn" onclick="downloadPDF()"
       class="py-2 px-5 text-white font-bold rounded-xl text-sm transition-colors"
       style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmouseout="this.style.background='#7a7ab0'">
-      📄 PDFを保存
+      <svg class="inline-block align-middle mr-1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg> PDFを保存
     </button>
   </div>
 
@@ -99,7 +99,7 @@
   <!-- メインリスト -->
   <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
     <div class="flex items-center gap-2 px-4 py-3 text-white font-bold text-sm" style="background:#6a7e96;">
-      🏫 5月 下校・お迎えスケジュール
+      <svg class="inline-block align-middle mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11L12 4L21 11V21"/><line x1="3" y1="21" x2="21" y2="21"/><rect x="9" y="15" width="6" height="6"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="12" y1="7" x2="12" y2="11"/></svg> 5月 下校・お迎えスケジュール
     </div>
 
     <!-- 5/1 金 -->
@@ -512,7 +512,7 @@
   <!-- 事業者連絡先 -->
   <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
     <div class="flex items-center gap-2 px-4 py-3 text-white font-bold text-sm" style="background:#6a9e88;">
-      🌿 放課後デイ・日中一時支援 事業者一覧
+      <svg class="inline-block align-middle mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22C4 16 9 12 17 9"/><path d="M17 9C19 5 21 2 22 2C22 8 19 16 13 20C9 22 4 22 2 22"/></svg> 放課後デイ・日中一時支援 事業者一覧
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4">
 
@@ -528,7 +528,7 @@
           <p class="text-gray-500">📞 <a href="tel:05017936568" class="underline underline-offset-2">050-1793-6568</a></p>
           <a href="https://www.google.com/maps/search/?api=1&query=岡山市北区今7丁目6-16" target="_blank" rel="noopener"
             class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
-            📍 岡山市北区今7丁目6-16 2階
+            <svg class="inline-block align-middle mr-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>岡山市北区今7丁目6-16 2階
           </a>
         </div>
       </div>
@@ -548,7 +548,7 @@
           <p class="text-gray-500">📞 <a href="tel:0862303100" class="underline underline-offset-2">086-230-3100</a></p>
           <a href="https://www.google.com/maps/search/?api=1&query=岡山市北区東島田町2-7-10" target="_blank" rel="noopener"
             class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
-            📍 岡山市北区 東島田町2-7-10
+            <svg class="inline-block align-middle mr-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>岡山市北区 東島田町2-7-10
           </a>
         </div>
       </div>
@@ -565,7 +565,7 @@
           <p class="text-gray-400">📞 確認中</p>
           <a href="https://www.google.com/maps/search/?api=1&query=岡山市中区中島306-1+CASA+NARITOMO" target="_blank" rel="noopener"
             class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
-            📍 岡山市中区中島306-1<br>CASA NARITOMO 102
+            <svg class="inline-block align-middle mr-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>岡山市中区中島306-1<br>CASA NARITOMO 102
           </a>
         </div>
       </div>
