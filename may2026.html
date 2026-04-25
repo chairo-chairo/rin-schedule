@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>凛くんの5月下校予定</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     @media print {
       @page { size: A4 portrait; margin: 12mm 10mm; }
@@ -44,11 +46,15 @@
     </div>
   </div>
 
-  <!-- 印刷ボタン -->
+  <!-- ボタン -->
   <div class="no-print flex gap-3 justify-center mb-5">
     <button onclick="window.print()"
       class="py-2 px-5 bg-gray-700 hover:bg-gray-600 text-white font-bold rounded-xl text-sm transition-colors">
       🖨️ 印刷する
+    </button>
+    <button id="pdf-btn" onclick="downloadPDF()"
+      class="py-2 px-5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-sm transition-colors">
+      📄 PDFを保存
     </button>
   </div>
 
@@ -555,6 +561,45 @@
   <footer class="text-center text-gray-300 text-xs pb-4">
     作成日：2026年4月　※内容に変更が生じた場合はご連絡ください
   </footer>
+
+  <script>
+    async function downloadPDF() {
+      const btn = document.getElementById('pdf-btn');
+      btn.textContent = '⏳ 生成中...';
+      btn.disabled = true;
+
+      const noPrintEls = document.querySelectorAll('.no-print');
+      noPrintEls.forEach(el => { el.dataset.prevDisplay = el.style.display; el.style.display = 'none'; });
+
+      await new Promise(r => setTimeout(r, 100));
+
+      const canvas = await html2canvas(document.body, {
+        scale: 2, useCORS: true, logging: false, backgroundColor: '#f3f4f6'
+      });
+
+      noPrintEls.forEach(el => { el.style.display = el.dataset.prevDisplay || ''; });
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const imgH = (canvas.height * pageW) / canvas.width;
+      const imgData = canvas.toDataURL('image/jpeg', 0.92);
+
+      let remaining = imgH, srcY = 0, firstPage = true;
+      while (remaining > 0) {
+        if (!firstPage) pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, -srcY, pageW, imgH);
+        srcY += pageH;
+        remaining -= pageH;
+        firstPage = false;
+      }
+
+      pdf.save('凛くん5月下校予定.pdf');
+      btn.textContent = '📄 PDFを保存';
+      btn.disabled = false;
+    }
+  </script>
 
 </body>
 </html>
