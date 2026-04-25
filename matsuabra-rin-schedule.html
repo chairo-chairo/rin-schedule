@@ -40,7 +40,7 @@
     .badge-ok  { background-color: #c8e0c8; color: #2d5030; }
     .badge-ng  { background-color: #f0d0cc; color: #7a3028; }
 
-    /* html2canvas PDF出力用: flex縦中央揃えを明示 */
+    /* html2canvas PDF出力用: flex/サイズ/パディング/形状を明示 */
     .flex        { display: flex !important; }
     .inline-flex { display: inline-flex !important; }
     .items-center { align-items: center !important; }
@@ -56,6 +56,25 @@
     .gap-2    { gap: 0.5rem !important; }
     .gap-3    { gap: 0.75rem !important; }
     img, svg  { vertical-align: middle; }
+
+    /* カラードット・バッジのサイズ/形状補完 */
+    .w-2  { width:  0.5rem !important; }
+    .h-2  { height: 0.5rem !important; }
+    .w-3  { width:  0.75rem !important; }
+    .h-3  { height: 0.75rem !important; }
+    .w-4  { width:  1rem !important; }
+    .h-4  { height: 1rem !important; }
+    .w-12 { width:  3rem !important; }
+    .rounded-full { border-radius: 9999px !important; }
+    /* ドットspanはinline-blockにしないとwidth/heightが効かない */
+    span.rounded-full { display: inline-block !important; }
+    /* バッジのパディングと折り返し防止 */
+    .px-1\.5 { padding-left: 0.375rem !important; padding-right: 0.375rem !important; }
+    .py-0\.5 { padding-top: 0.125rem !important; padding-bottom: 0.125rem !important; }
+    .badge-ok, .badge-ng { white-space: nowrap !important; line-height: 1.4 !important; }
+    /* テキストサイズ */
+    .text-xs { font-size: 0.75rem !important; line-height: 1rem !important; }
+    .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
 
     @media print {
       @page { size: A4 portrait; margin: 12mm 10mm; }
