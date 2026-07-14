@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凛くん 下校・お迎え予定表</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f3efe8;
+  color: #4a4a4a;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 16px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+h1 { font-size: 19px; margin: 0 0 2px; color: #4a4a4a; }
+.sub { color: #9a9a9a; font-size: 12px; margin: 0 0 14px; }
+.card {
+  background: #fff;
+  border: 1px solid #eee0d0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.card-head {
+  padding: 10px 14px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+}
+.card-body { padding: 14px; }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 14px;
+}
+.field { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: #888; }
+input, select, textarea {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #4a4a4a;
+}
+textarea { resize: vertical; min-height: 44px; width: 100%; }
+button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  background: #8a8ab0;
+}
+button.secondary { background: #9aa0a8; }
+button.danger { background: #c08a80; }
+button:hover { opacity: 0.88; }
+.rules { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px; }
+.rules .box { background: #f7f4ee; border-radius: 10px; padding: 10px 12px; }
+.rules .box b { display:block; margin-bottom: 3px; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #999; margin-bottom: 10px; }
+.legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: -1px; }
+.day-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #f2f2f2;
+  flex-wrap: wrap;
+}
+.day-row.off { background: rgba(216,232,240,0.35); }
+.day-row.holiday { background: rgba(240,220,216,0.35); }
+.date-box { width: 46px; text-align: center; flex-shrink: 0; }
+.date-box .d { font-weight: bold; font-size: 15px; }
+.date-box .w { font-size: 11px; color: #999; }
+.day-row.off .date-box .w, .day-row.off .date-box .d { color: #3a6a8a; }
+.day-row.holiday .date-box .w, .day-row.holiday .date-box .d { color: #8a3828; }
+.day-edit { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; flex: 1; min-width: 0; }
+.day-edit select, .day-edit input { padding: 4px 6px; font-size: 12px; }
+.badge {
+  font-size: 11px; padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.badge-ok { background: #c8e0c8; color: #2d5030; }
+.badge-ng { background: #f0d0cc; color: #7a3028; }
+.time-note { font-size: 11px; color: #b06030; font-weight: bold; }
+.summer-banner {
+  background: rgba(255,230,170,0.5);
+  color: #a86a10;
+  text-align: center;
+  padding: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 6px 12px;
+}
+.summer-banner .note { font-weight: normal; font-size: 12px; margin-top: 4px; }
+.fac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.fac { border-radius: 10px; overflow: hidden; border: 1px solid #f0f0f0; }
+.fac-head { color: #fff; text-align: center; padding: 6px; font-size: 12px; font-weight: bold; }
+.fac-body { padding: 8px; font-size: 11px; }
+.fac-body a { color: #6a7e96; }
+.small-note { font-size: 11px; color: #aaa; margin-top: 6px; }
+footer { text-align: center; color: #bbb; font-size: 11px; padding: 10px 0 4px; }
+.month-list { display: flex; gap: 6px; flex-wrap: wrap; }
+.month-chip {
+  font-size: 12px; padding: 4px 10px; border-radius: 20px; background: #f0ece2; cursor: pointer; border: 1px solid #e5ddd0;
+}
+.month-chip.active { background: #8a8ab0; color: #fff; border-color: #8a8ab0; }
+@media print {
+  body { background: #fff; padding: 0; }
+  .no-print { display: none !important; }
+  .card { box-shadow: none; border: 1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1 id="titleText">凛くん 下校・お迎え予定表</h1>
+  <p class="sub" id="subText"></p>
+
+  <div class="card no-print">
+    <div class="card-body">
+      <div class="controls">
+        <div class="field">
+          <label>対象の月</label>
+          <input type="month" id="monthPicker">
+        </div>
+        <button onclick="generateMonth()">この月を作成 / 表示</button>
+        <button class="secondary" onclick="regenerateFromRotation()">既定パターンで作り直す</button>
+        <div style="flex:1"></div>
+        <button class="secondary" onclick="window.print()">🖨️ 印刷する（PDF保存もここから）</button>
+      </div>
+      <div class="month-list" id="monthList"></div>
+      <p class="small-note">保存済みの月をクリックすると、その月の予定に切り替わります。入力内容は自動でこのページに保存され、次に開いたときも残っています。</p>
+    </div>
+  </div>
+
+  <div class="card no-print">
+    <div class="card-head" style="background:rgba(120,150,110,0.85);">📷 お便りの内容を取り込む</div>
+    <div class="card-body">
+      <p class="small-note" style="margin-top:0;">
+        使い方：①学童からのお便り(紙)を写真に撮って、Claudeとのチャットに送る　②「この予定を下のフォーマットで書き出して」と伝えて、下の書式例を一緒に送る　③返ってきたテキストをここに貼り付けて「反映する」を押す
+      </p>
+      <details style="margin-bottom:8px;">
+        <summary style="cursor:pointer;color:#6a8a70;font-size:12px;">書式の例を見る（Claudeに送る時にコピーして使えます）</summary>
+        <pre style="white-space:pre-wrap;background:#f7f4ee;padding:8px 10px;border-radius:8px;font-size:11px;margin:6px 0 0;">7/1 あるてみす あり 14:20 14:25〜14:30
+7/2 ウェルハニーバン なし 14:35 14:40〜14:50
+7/15 あるてみす あり 14:10 14:00 短縮授業
+7/18〜8/30 夏休み 8/31(月)始業式は短縮授業・下校11:30予定です</pre>
+      </details>
+      <textarea id="importText" placeholder="ここにClaudeが書き出したテキストを貼り付けてください" style="min-height:90px;"></textarea>
+      <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+        <button onclick="applyImport()">反映する</button>
+        <span id="importResult" style="font-size:12px;color:#888;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card no-print">
+    <div class="card-head" style="background:rgba(200,168,90,0.85);">⚙️ 基本設定（めったに変わらない項目）</div>
+    <div class="card-body">
+      <div class="controls">
+        <div class="field"><label>お子さんの名前</label><input id="childName" size="10"></div>
+        <div class="field"><label>学校名・授業時間の表記</label><input id="schoolNote" size="24"></div>
+      </div>
+      <div class="rules">
+        <div class="box"><b style="color:#3a6a8a;">月・火・木・金（5時間授業）</b>
+          下校 <input id="r_normal_dismiss" size="6"> / お迎え <input id="r_normal_pickup" size="10"></div>
+        <div class="box"><b style="color:#35408a;">水曜日（5時間授業）</b>
+          下校 <input id="r_wed_dismiss" size="6"> / お迎え <input id="r_wed_pickup" size="10"></div>
+      </div>
+      <p class="small-note">曜日ごとの標準パターン（送迎あり/なしなど）は下の「既定パターン」から編集できます。</p>
+    </div>
+  </div>
+
+  <div class="card no-print" id="rotationCard">
+    <div class="card-head" style="background:rgba(106,126,150,0.85);">📅 曜日ごとの既定パターン</div>
+    <div class="card-body" id="rotationBody"></div>
+  </div>
+
+  <div class="card no-print">
+    <div class="card-head" style="background:rgba(240,140,90,0.85);">🏖️ 夏休み・長期休みの設定</div>
+    <div class="card-body">
+      <div class="controls">
+        <div class="field"><label>設定する</label>
+          <select id="summerEnabled"><option value="no">なし</option><option value="yes">あり</option></select>
+        </div>
+        <div class="field"><label>開始日</label><input type="date" id="summerStart"></div>
+        <div class="field"><label>終了日</label><input type="date" id="summerEnd"></div>
+      </div>
+      <div class="field"><label>再開に関する備考（始業式の下校時間など）</label>
+        <input id="summerNote" style="width:100%;"></div>
+    </div>
+  </div>
+
+  <div class="card no-print">
+    <div class="card-head" style="background:rgba(184,131,106,0.85);">📝 特記事項・ママからの伝達</div>
+    <div class="card-body">
+      <div class="field"><label>今月の特記事項（終業式ウィークの短縮授業など・空欄なら非表示）</label>
+        <textarea id="specialNote"></textarea></div>
+      <div class="field" style="margin-top:8px;"><label>ママ・パパからの伝達</label>
+        <textarea id="momMessage"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 出力プレビュー（印刷・PDF保存対象） -->
+  <div class="card">
+    <div class="card-head" style="background:rgba(106,126,150,0.85);">📅 下校・お迎えスケジュール</div>
+    <div class="legend">
+      <span><span class="dot" style="background:#d8e8f0;border:1px solid #b0c8d8;"></span>土曜日</span>
+      <span><span class="dot" style="background:#f0dcd8;border:1px solid #d8c0bc;"></span>日曜・祝日</span>
+      <span id="legendEf"></span>
+      <span id="legendHoney"></span>
+      <span id="legendArte"></span>
+    </div>
+    <div id="scheduleBody"></div>
+  </div>
+
+  <div class="card" id="specialNoteCard" style="display:none;">
+    <div class="card-body" id="specialNoteBody"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" style="background:rgba(106,158,136,0.85);">🚌 放課後デイ・日中一時支援 事業者一覧</div>
+    <div class="card-body">
+      <div class="fac-grid" id="facGrid"></div>
+      <p class="small-note no-print">連絡先や住所は下のボタンから編集できます。</p>
+      <button class="secondary no-print" style="margin-top:8px;" onclick="toggleFacEdit()">連絡先を編集する</button>
+      <div id="facEditArea" style="display:none; margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <div class="card" id="momCard" style="display:none;">
+    <div class="card-head" style="background:rgba(184,131,106,0.85);">💌 ママ・パパからの伝達</div>
+    <div class="card-body" id="momBody"></div>
+  </div>
+
+  <footer id="footerText"></footer>
+
+</div>
+
+<script>
+const STORE_PREFIX = 'rin-schedule-v1:';
+const WEEKDAY_NAMES = ['日','月','火','水','木','金','土'];
+const TYPE_LABELS = { off: 'お休み', ef: '放課後デイ エフ', honey: 'ウェルハニーバン', arte: 'あるてみす', custom: '自由入力' };
+const TYPE_COLORS = {
+  ef:   { dot:'#b8736a', text:'#7a3d35', header:'#b8736a' },
+  honey:{ dot:'#6a9e88', text:'#2d6050', header:'#6a9e88' },
+  arte: { dot:'#7a8ab8', text:'#35408a', header:'#7a8ab8' }
+};
+
+function loadJSON(key, fallback) {
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch(e) { return fallback; }
+}
+function saveJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+// ---- 基本設定（グローバル） ----
+const defaultSettings = {
+  childName: '凛',
+  schoolNote: '津島小学校 5時間授業',
+  rules: {
+    normalDismiss: '14:35', normalPickup: '14:40〜14:50',
+    wedDismiss: '14:20', wedPickup: '14:25〜14:30'
+  },
+  rotation: {
+    1: { type:'ef',    pickup:'ng', dismiss:'14:35', pickupTime:'14:40〜14:50', badges:'' },
+    2: { type:'honey', pickup:'ok', dismiss:'14:35', pickupTime:'13:50',        badges:'小学校早退' },
+    3: { type:'arte',  pickup:'ok', dismiss:'14:20', pickupTime:'14:25〜14:30', badges:'' },
+    4: { type:'honey', pickup:'ng', dismiss:'14:35', pickupTime:'14:40〜14:50', badges:'' },
+    5: { type:'arte',  pickup:'ok', dismiss:'14:35', pickupTime:'14:40〜14:50', badges:'' }
+  },
+  facilities: {
+    ef:   { name:'放課後デイ エフ', days:'月', hours:'9:00〜19:00', pickup:'ng', tel:'050-1793-6568', addr:'岡山市北区今7丁目6-16 2階' },
+    honey:{ name:'ウェルハニーバン', days:'火・木', hours:'14:00〜17:00', pickup:'火:ok / 木:ng', tel:'086-230-3100', addr:'岡山市北区東島田町2-7-10' },
+    arte: { name:'あるてみす', days:'水・金', hours:'9:00〜18:00', pickup:'ok', tel:'確認中', addr:'岡山市中区中島306-1 CASA NARITOMO 102' }
+  }
+};
+let settings = loadJSON(STORE_PREFIX + 'settings', defaultSettings);
+
+// 初回だけ、2026年7月の実データを入れておく（今まで使っていたHTMLと同じ内容）
+function seedJulyIfEmpty() {
+  const key = STORE_PREFIX + 'month:2026-07';
+  if (localStorage.getItem(key)) return;
+  const days = {};
+  days['2026-07-15'] = { type:'arte', pickup:'ok', dismiss:'14:10', pickupTime:'14:00', badges:'短縮授業' };
+  days['2026-07-16'] = { type:'honey', pickup:'ng', dismiss:'11:30', pickupTime:'11:20', badges:'短縮授業' };
+  days['2026-07-17'] = { type:'arte', pickup:'ok', dismiss:'11:30', pickupTime:'11:20', badges:'終業式' };
+  const monthData = {
+    days,
+    summer: { enabled:true, start:'2026-07-18', end:'2026-08-30', note:'8/31（月）始業式は短縮授業・下校11:30予定です' },
+    specialNote: '📚 終業式ウィーク（7/15〜17）短縮授業\n7/15（水）：下校14:10　7/16（木）：下校11:30　7/17（金）終業式：下校11:30',
+    momMessage: '7月18日〜8月30日までは夏休みとなります。8月31日（月）の始業式は短縮授業となり、11:30下校予定です。'
+  };
+  saveJSON(key, monthData);
+  const months = loadJSON(STORE_PREFIX + 'months', []);
+  if (!months.includes('2026-07')) { months.push('2026-07'); saveJSON(STORE_PREFIX + 'months', months); }
+}
+seedJulyIfEmpty();
+
+let currentMonth = null;
+let monthData = null;
+
+function daysInMonth(y, m) { return new Date(y, m, 0).getDate(); }
+
+function getMonthList() {
+  const list = loadJSON(STORE_PREFIX + 'months', []);
+  return list.sort();
+}
+function addMonthToList(m) {
+  const list = getMonthList();
+  if (!list.includes(m)) { list.push(m); saveJSON(STORE_PREFIX + 'months', list.sort()); }
+}
+
+function defaultDayFor(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  const wd = d.getDay();
+  if (wd === 0 || wd === 6) return { type:'off', pickup:'', dismiss:'', pickupTime:'', badges:'' };
+  const r = settings.rotation[wd];
+  return r ? { ...r } : { type:'off', pickup:'', dismiss:'', pickupTime:'', badges:'' };
+}
+
+function generateMonth() {
+  const m = document.getElementById('monthPicker').value;
+  if (!m) return;
+  loadMonth(m, false);
+}
+
+function regenerateFromRotation() {
+  if (!currentMonth) return;
+  if (!confirm('この月の入力内容を、曜日の既定パターンで作り直します。個別の編集は消えますがよろしいですか？')) return;
+  loadMonth(currentMonth, true);
+}
+
+function loadMonth(m, forceRegenerate) {
+  const key = STORE_PREFIX + 'month:' + m;
+  let data = forceRegenerate ? null : loadJSON(key, null);
+  if (!data) {
+    const [y, mo] = m.split('-').map(Number);
+    const n = daysInMonth(y, mo);
+    const days = {};
+    for (let d = 1; d <= n; d++) {
+      const dateStr = m + '-' + String(d).padStart(2,'0');
+      days[dateStr] = defaultDayFor(dateStr);
+    }
+    data = { days, summer: { enabled:false, start:'', end:'', note:'' }, specialNote:'', momMessage:'' };
+  }
+  currentMonth = m;
+  monthData = data;
+  document.getElementById('monthPicker').value = m;
+  saveJSON(key, monthData);
+  addMonthToList(m);
+  renderAll();
+}
+
+function saveCurrentMonth() {
+  if (!currentMonth) return;
+  saveJSON(STORE_PREFIX + 'month:' + currentMonth, monthData);
+}
+
+// ---- 設定フォームの読み書き ----
+function renderSettingsForm() {
+  document.getElementById('childName').value = settings.childName;
+  document.getElementById('schoolNote').value = settings.schoolNote;
+  document.getElementById('r_normal_dismiss').value = settings.rules.normalDismiss;
+  document.getElementById('r_normal_pickup').value = settings.rules.normalPickup;
+  document.getElementById('r_wed_dismiss').value = settings.rules.wedDismiss;
+  document.getElementById('r_wed_pickup').value = settings.rules.wedPickup;
+
+  const body = document.getElementById('rotationBody');
+  body.innerHTML = '';
+  for (let wd = 1; wd <= 5; wd++) {
+    const r = settings.rotation[wd];
+    const row = document.createElement('div');
+    row.className = 'day-edit';
+    row.style.marginBottom = '6px';
+    row.innerHTML = `
+      <b style="width:28px;">${WEEKDAY_NAMES[wd]}</b>
+      <select data-wd="${wd}" data-f="type" onchange="onRotationChange(event)">
+        ${['ef','honey','arte'].map(t => `<option value="${t}" ${r.type===t?'selected':''}>${TYPE_LABELS[t]}</option>`).join('')}
+      </select>
+      <select data-wd="${wd}" data-f="pickup" onchange="onRotationChange(event)">
+        <option value="ok" ${r.pickup==='ok'?'selected':''}>送迎あり</option>
+        <option value="ng" ${r.pickup==='ng'?'selected':''}>送迎なし</option>
+      </select>
+      下校<input data-wd="${wd}" data-f="dismiss" value="${r.dismiss}" size="6" onchange="onRotationChange(event)">
+      お迎え<input data-wd="${wd}" data-f="pickupTime" value="${r.pickupTime}" size="10" onchange="onRotationChange(event)">
+      特記<input data-wd="${wd}" data-f="badges" value="${r.badges}" size="8" placeholder="例:小学校早退" onchange="onRotationChange(event)">
+    `;
+    body.appendChild(row);
+  }
+}
+function onRotationChange(e) {
+  const wd = e.target.dataset.wd, f = e.target.dataset.f;
+  settings.rotation[wd][f] = e.target.value;
+  saveJSON(STORE_PREFIX + 'settings', settings);
+}
+['childName','schoolNote','r_normal_dismiss','r_normal_pickup','r_wed_dismiss','r_wed_pickup'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', () => {
+    settings.childName = document.getElementById('childName').value;
+    settings.schoolNote = document.getElementById('schoolNote').value;
+    settings.rules.normalDismiss = document.getElementById('r_normal_dismiss').value;
+    settings.rules.normalPickup = document.getElementById('r_normal_pickup').value;
+    settings.rules.wedDismiss = document.getElementById('r_wed_dismiss').value;
+    settings.rules.wedPickup = document.getElementById('r_wed_pickup').value;
+    saveJSON(STORE_PREFIX + 'settings', settings);
+    renderAll();
+  });
+});
+
+// ---- 夏休み・特記事項フォーム ----
+function renderExtraForms() {
+  document.getElementById('summerEnabled').value = monthData.summer.enabled ? 'yes' : 'no';
+  document.getElementById('summerStart').value = monthData.summer.start || '';
+  document.getElementById('summerEnd').value = monthData.summer.end || '';
+  document.getElementById('summerNote').value = monthData.summer.note || '';
+  document.getElementById('specialNote').value = monthData.specialNote || '';
+  document.getElementById('momMessage').value = monthData.momMessage || '';
+}
+function bindExtraForms() {
+  const ids = ['summerEnabled','summerStart','summerEnd','summerNote','specialNote','momMessage'];
+  ids.forEach(id => {
+    document.getElementById(id).addEventListener('change', () => {
+      monthData.summer.enabled = document.getElementById('summerEnabled').value === 'yes';
+      monthData.summer.start = document.getElementById('summerStart').value;
+      monthData.summer.end = document.getElementById('summerEnd').value;
+      monthData.summer.note = document.getElementById('summerNote').value;
+      monthData.specialNote = document.getElementById('specialNote').value;
+      monthData.momMessage = document.getElementById('momMessage').value;
+      saveCurrentMonth();
+      renderSchedule();
+      renderMisc();
+    });
+  });
+}
+
+// ---- 日ごとの編集 ----
+function onDayFieldChange(dateStr, field, value) {
+  if (!monthData.days[dateStr]) monthData.days[dateStr] = { type:'off', pickup:'', dismiss:'', pickupTime:'', badges:'' };
+  monthData.days[dateStr][field] = value;
+  saveCurrentMonth();
+  renderSchedule();
+}
+
+function inSummerRange(dateStr) {
+  if (!monthData.summer.enabled || !monthData.summer.start || !monthData.summer.end) return false;
+  return dateStr >= monthData.summer.start && dateStr <= monthData.summer.end;
+}
+
+function renderSchedule() {
+  const el = document.getElementById('scheduleBody');
+  el.innerHTML = '';
+  const dates = Object.keys(monthData.days).sort();
+  let summerShown = false;
+  dates.forEach(dateStr => {
+    if (inSummerRange(dateStr)) {
+      if (!summerShown) {
+        const banner = document.createElement('div');
+        banner.className = 'summer-banner';
+        const s = monthData.summer;
+        banner.innerHTML = `🏖️ ${fmtDateRange(s.start, s.end)} 夏休み<div class="note">${escapeHtml(s.note || '')}</div>`;
+        el.appendChild(banner);
+        summerShown = true;
+      }
+      return;
+    }
+    const day = monthData.days[dateStr];
+    const d = new Date(dateStr + 'T00:00:00');
+    const wd = d.getDay();
+    const isWeekend = wd === 0 || wd === 6;
+    const row = document.createElement('div');
+    row.className = 'day-row' + (day.type === 'off' ? (wd===6?' off':wd===0?' holiday':' off') : '');
+    const dateLabel = (d.getMonth()+1) + '/' + d.getDate();
+
+    let editHtml = '';
+    editHtml += `<select class="no-print" onchange="onDayFieldChange('${dateStr}','type',this.value)">`;
+    ['off','ef','honey','arte','custom'].forEach(t => {
+      editHtml += `<option value="${t}" ${day.type===t?'selected':''}>${TYPE_LABELS[t]}</option>`;
+    });
+    editHtml += `</select>`;
+
+    let viewHtml = '';
+    if (day.type === 'off') {
+      viewHtml = `<div style="font-weight:bold; color:${isWeekend?(wd===6?'#3a6a8a':'#8a3828'):'#999'};">お休み</div>`;
+    } else {
+      const label = day.type === 'custom' ? (day.customLabel || '自由入力') : TYPE_LABELS[day.type];
+      const color = day.type === 'custom' ? '#7a7a7a' : TYPE_COLORS[day.type].text;
+      const dot = day.type === 'custom' ? '#999' : TYPE_COLORS[day.type].dot;
+      const badges = (day.badges || '').split(/[、,]/).map(b=>b.trim()).filter(Boolean);
+      viewHtml = `
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+          <span class="dot" style="background:${dot};width:8px;height:8px;"></span>
+          <span style="font-weight:bold;color:${color};">${escapeHtml(label)}</span>
+          ${day.pickup ? `<span class="badge ${day.pickup==='ok'?'badge-ok':'badge-ng'}">${day.pickup==='ok'?'送迎あり':'送迎なし'}</span>` : ''}
+          ${badges.map(b => `<span class="badge" style="background:#f5dca0;color:#8a5a10;">${escapeHtml(b)}</span>`).join('')}
+        </div>
+        <div class="time-note">${day.dismiss ? '下校 '+escapeHtml(day.dismiss) : ''}${day.dismiss && day.pickupTime ? ' ｜ ' : ''}${day.pickupTime ? 'お迎え '+escapeHtml(day.pickupTime) : ''}</div>
+      `;
+    }
+
+    const editExtra = day.type !== 'off' ? `
+      <span class="no-print" style="display:flex;gap:4px;flex-wrap:wrap;">
+        <select onchange="onDayFieldChange('${dateStr}','pickup',this.value)">
+          <option value="">送迎-</option>
+          <option value="ok" ${day.pickup==='ok'?'selected':''}>あり</option>
+          <option value="ng" ${day.pickup==='ng'?'selected':''}>なし</option>
+        </select>
+        <input placeholder="下校時刻" value="${day.dismiss||''}" size="6" onchange="onDayFieldChange('${dateStr}','dismiss',this.value)">
+        <input placeholder="お迎え時刻" value="${day.pickupTime||''}" size="9" onchange="onDayFieldChange('${dateStr}','pickupTime',this.value)">
+        <input placeholder="特記(例:短縮授業)" value="${day.badges||''}" size="10" onchange="onDayFieldChange('${dateStr}','badges',this.value)">
+        ${day.type==='custom' ? `<input placeholder="表示名" value="${day.customLabel||''}" size="8" onchange="onDayFieldChange('${dateStr}','customLabel',this.value)">` : ''}
+      </span>` : '';
+
+    row.innerHTML = `
+      <div class="date-box"><div class="d">${dateLabel}</div><div class="w">${WEEKDAY_NAMES[wd]}</div></div>
+      <div class="day-edit">
+        <div style="flex:1;min-width:160px;">${viewHtml}</div>
+        ${editHtml}
+        ${editExtra}
+      </div>
+    `;
+    el.appendChild(row);
+  });
+}
+
+function fmtDateRange(s, e) {
+  if (!s || !e) return '';
+  const sd = new Date(s+'T00:00:00'), ed = new Date(e+'T00:00:00');
+  const f = d => `${d.getMonth()+1}/${d.getDate()}（${WEEKDAY_NAMES[d.getDay()]}）`;
+  return `${f(sd)}〜${f(ed)}`;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderMisc() {
+  document.getElementById('titleText').textContent = `${settings.childName} 下校・お迎え予定`;
+  document.getElementById('subText').textContent = currentMonth ? `${currentMonth.replace('-','年')}月 ${settings.schoolNote}` : '';
+  document.getElementById('legendEf').innerHTML = `<span class="dot" style="background:${TYPE_COLORS.ef.dot};"></span>放課後デイ エフ（月）`;
+  document.getElementById('legendHoney').innerHTML = `<span class="dot" style="background:${TYPE_COLORS.honey.dot};"></span>ウェルハニーバン（火・木）`;
+  document.getElementById('legendArte').innerHTML = `<span class="dot" style="background:${TYPE_COLORS.arte.dot};"></span>あるてみす（水・金）`;
+
+  const noteCard = document.getElementById('specialNoteCard');
+  if (monthData.specialNote && monthData.specialNote.trim()) {
+    noteCard.style.display = '';
+    document.getElementById('specialNoteBody').innerHTML = escapeHtml(monthData.specialNote).replace(/\n/g,'<br>');
+  } else {
+    noteCard.style.display = 'none';
+  }
+
+  const momCard = document.getElementById('momCard');
+  if (monthData.momMessage && monthData.momMessage.trim()) {
+    momCard.style.display = '';
+    document.getElementById('momBody').innerHTML = escapeHtml(monthData.momMessage).replace(/\n/g,'<br>');
+  } else {
+    momCard.style.display = 'none';
+  }
+
+  document.getElementById('footerText').textContent = `作成日：${new Date().getFullYear()}年${new Date().getMonth()+1}月 ※内容に変更が生じた場合はご連絡ください`;
+
+  renderFacilities();
+  renderMonthList();
+}
+
+function renderFacilities() {
+  const grid = document.getElementById('facGrid');
+  grid.innerHTML = '';
+  ['ef','honey','arte'].forEach(key => {
+    const f = settings.facilities[key];
+    const c = TYPE_COLORS[key];
+    const div = document.createElement('div');
+    div.className = 'fac';
+    div.innerHTML = `
+      <div class="fac-head" style="background:${c.header};">${f.days}<br>${f.name}</div>
+      <div class="fac-body">
+        <p style="font-weight:bold;color:#b06030;margin:0 0 4px;">提供時間：${escapeHtml(f.hours)}</p>
+        <p style="margin:0 0 4px;">送迎：${escapeHtml(f.pickup)}</p>
+        <p style="margin:0 0 4px;">📞 <a href="tel:${f.tel.replace(/-/g,'')}">${escapeHtml(f.tel)}</a></p>
+        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(f.addr)}" target="_blank" rel="noopener">📍 ${escapeHtml(f.addr)}</a>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function toggleFacEdit() {
+  const area = document.getElementById('facEditArea');
+  if (area.style.display === 'none') {
+    area.style.display = '';
+    area.innerHTML = ['ef','honey','arte'].map(key => {
+      const f = settings.facilities[key];
+      return `<div style="margin-bottom:8px;">
+        <b>${f.name}</b><br>
+        提供時間 <input data-key="${key}" data-f="hours" value="${f.hours}" size="12" onchange="onFacChange(event)">
+        送迎 <input data-key="${key}" data-f="pickup" value="${f.pickup}" size="12" onchange="onFacChange(event)">
+        電話 <input data-key="${key}" data-f="tel" value="${f.tel}" size="12" onchange="onFacChange(event)">
+        住所 <input data-key="${key}" data-f="addr" value="${f.addr}" size="26" onchange="onFacChange(event)">
+      </div>`;
+    }).join('');
+  } else {
+    area.style.display = 'none';
+  }
+}
+function onFacChange(e) {
+  const key = e.target.dataset.key, f = e.target.dataset.f;
+  settings.facilities[key][f] = e.target.value;
+  saveJSON(STORE_PREFIX + 'settings', settings);
+  renderFacilities();
+}
+
+function renderMonthList() {
+  const list = getMonthList();
+  const el = document.getElementById('monthList');
+  el.innerHTML = list.map(m => `<span class="month-chip ${m===currentMonth?'active':''}" onclick="loadMonth('${m}', false)">${m}</span>`).join('');
+}
+
+function renderAll() {
+  renderSettingsForm();
+  renderExtraForms();
+  renderSchedule();
+  renderMisc();
+}
+
+// ---- お便り取り込み（貼り付けテキストを解析） ----
+function mkDate(year, month, day) {
+  return year + '-' + String(month).padStart(2,'0') + '-' + String(day).padStart(2,'0');
+}
+
+function applyImport() {
+  const text = document.getElementById('importText').value;
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+  const [cy] = currentMonth.split('-').map(Number);
+  let dayCount = 0, rangeCount = 0, failCount = 0;
+  const badgeKeywords = ['短縮授業','終業式','早退','小学校早退','通院','自由参加','振替'];
+
+  lines.forEach(line => {
+    const rangeMatch = line.match(/(\d{1,2})\/(\d{1,2})\s*[-~〜]\s*(\d{1,2})\/(\d{1,2})/);
+    const singleMatch = line.match(/(\d{1,2})\/(\d{1,2})/);
+
+    if (rangeMatch && /休み/.test(line)) {
+      const [, m1, d1, m2, d2] = rangeMatch;
+      const start = mkDate(cy, Number(m1), Number(d1));
+      const end = mkDate(cy, Number(m2), Number(d2));
+      const note = line.replace(rangeMatch[0], '').replace(/夏休み|冬休み|春休み|長期休み/g, '').trim();
+      monthData.summer = { enabled: true, start, end, note };
+      rangeCount++;
+      return;
+    }
+
+    if (!singleMatch) { failCount++; return; }
+    const mo = Number(singleMatch[1]), da = Number(singleMatch[2]);
+    const dateStr = mkDate(cy, mo, da);
+
+    let type = null;
+    if (/エフ/.test(line)) type = 'ef';
+    else if (/ハニーバン/.test(line)) type = 'honey';
+    else if (/あるてみす/.test(line)) type = 'arte';
+    else if (/休み/.test(line)) type = 'off';
+
+    const existing = monthData.days[dateStr] || defaultDayFor(dateStr);
+    if (!type) type = existing.type || 'custom';
+
+    let pickup = existing.pickup || '';
+    if (/送迎あり|(?<!な)あり/.test(line)) pickup = 'ok';
+    if (/送迎なし|なし/.test(line)) pickup = 'ng';
+
+    const timeMatches = line.match(/\d{1,2}:\d{2}(\s*[〜~-]\s*\d{1,2}:\d{2})?/g) || [];
+    const dismiss = timeMatches[0] ? timeMatches[0].replace(/\s/g,'') : (existing.dismiss || '');
+    const pickupTime = timeMatches[1] ? timeMatches[1].replace(/\s/g,'') : (existing.pickupTime || '');
+
+    const foundBadges = badgeKeywords.filter(b => line.includes(b));
+    const badges = foundBadges.length ? foundBadges.join('、') : (existing.badges || '');
+
+    let customLabel = existing.customLabel || '';
+    if (type === 'custom') {
+      customLabel = line
+        .replace(singleMatch[0], '')
+        .replace(/送迎あり|送迎なし|あり|なし/g, '')
+        .replace(new RegExp(badgeKeywords.join('|'), 'g'), '')
+        .replace(/\d{1,2}:\d{2}(\s*[〜~-]\s*\d{1,2}:\d{2})?/g, '')
+        .trim() || '自由入力';
+    }
+
+    monthData.days[dateStr] = { type, pickup, dismiss, pickupTime, badges, customLabel };
+    dayCount++;
+  });
+
+  saveCurrentMonth();
+  renderExtraForms();
+  renderSchedule();
+  renderMisc();
+
+  const parts = [];
+  if (dayCount) parts.push(`${dayCount}日分を反映`);
+  if (rangeCount) parts.push(`長期休み設定を${rangeCount}件反映`);
+  if (failCount) parts.push(`日付が読み取れなかった行が${failCount}件`);
+  document.getElementById('importResult').textContent = parts.join('、') || '反映できる内容が見つかりませんでした';
+}
+
+// ---- 起動処理 ----
+document.getElementById('monthPicker').addEventListener('change', () => {});
+bindExtraForms();
+
+const savedMonths = getMonthList();
+const initialMonth = savedMonths.includes('2026-07') ? '2026-07' : (savedMonths[savedMonths.length-1] || (new Date().getFullYear() + '-' + String(new Date().getMonth()+1).padStart(2,'0')));
+loadMonth(initialMonth, false);
+</script>
+</body>
+</html>
