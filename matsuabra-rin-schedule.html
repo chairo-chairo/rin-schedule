@@ -59,6 +59,12 @@ body {
 .arte-header { background-color: #7a8ab8; }
 .arte-light { background-color: #e8ecf8; }
 
+/* ばあばの家 — くすみローズ */
+.baaba-dot { background-color: #b8768a; }
+.baaba-text { color: #8a3a52; }
+.baaba-header { background-color: #b8768a; }
+.baaba-light { background-color: #f5e8ec; }
+
 /* バッジ */
 .badge-ok { background-color: #c8e0c8; color: #2d5030; }
 .badge-ng { background-color: #f0d0cc; color: #7a3028; }
@@ -168,6 +174,7 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full ef-dot"></span>きらめき（月）</span>
 <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full honey-dot"></span>ウェルハニーバン（火・木）</span>
 <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full arte-dot"></span>あるてみす（水・金）</span>
+<span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full baaba-dot"></span>ばあばの家</span>
 </div>
 
 <!-- メインリスト -->
@@ -206,6 +213,7 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm ef-text">きらめき</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
 </div>
+<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -221,7 +229,6 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -252,7 +259,6 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -289,19 +295,18 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <div class="text-sm font-bold text-sun">お休み</div>
 </div>
 
-<!-- 8/10 月（8/13振替） -->
+<!-- 8/10 月 -->
 <div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
 <div class="w-12 shrink-0 text-center">
 <div class="text-base font-bold text-gray-700 leading-tight">8/10</div>
 <div class="text-xs font-bold text-gray-400">月</div>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<div class="flex items-center gap-1.5 mb-1">
 <span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎（8/13の振替）</div>
 </div>
 </div>
 
@@ -317,7 +322,6 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -337,12 +341,18 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 </div>
 
 <!-- 8/13 木（ウェルさんお休み） -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-400 leading-tight">8/13</div>
+<div class="text-base font-bold text-gray-700 leading-tight">8/13</div>
 <div class="text-xs font-bold text-gray-400">木</div>
 </div>
-<div class="text-sm text-gray-400">予定なし（ウェルさんお休み）</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full baaba-dot shrink-0"></span>
+<span class="font-bold text-sm baaba-text">ばあばの家</span>
+</div>
+<div class="text-xs text-gray-400">ウェルさんお休みのため</div>
+</div>
 </div>
 
 <!-- 8/14 金 -->
@@ -423,7 +433,6 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -481,7 +490,6 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -512,7 +520,6 @@ style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmous
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
 </div>
-<div class="text-xs text-gray-400">※ばあば送迎</div>
 </div>
 </div>
 
@@ -604,7 +611,6 @@ class="text-xs leading-tight underline underline-offset-2 block" style="color:#6
 <span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ok">火：送迎あり</span>
 <span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ng">木：送迎なし</span>
 </div>
-<p class="text-gray-400">※8月は祖母（ばあば）が送迎対応</p>
 <p class="text-gray-500">📞 <a href="tel:0862303100" class="underline underline-offset-2">086-230-3100</a></p>
 <a href="https://www.google.com/maps/search/?api=1&query=岡山市北区東島田町2-7-10" target="_blank" rel="noopener"
 class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
@@ -639,7 +645,7 @@ class="text-xs leading-tight underline underline-offset-2 block" style="color:#6
 <svg class="inline-block align-middle mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg> ママからの伝達
 </div>
 <div class="px-4 py-4">
-<p class="text-sm text-gray-700">7月18日〜8月30日までは夏休みとなります。8月中は、きらめき（3・17・24・31日）、ウェルハニーバン（4・6・10・11・20・25・27日）、あるてみす（5・7・12・14・26・28日）を利用します。ウェルハニーバンの送迎は8月中、祖母（ばあば）が対応します（8月13日はウェルさんお休みのため8月10日に振替）。8月31日（月）の始業式は短縮授業となり、11:30下校予定です。</p>
+<p class="text-sm text-gray-700">7月18日〜8月30日までは夏休みとなります。8月中は、きらめき（3・17・24・31日）、ウェルハニーバン（4・6・10・11・20・25・27日）、あるてみす（5・7・12・14・26・28日）を利用します。8月3日は祖母（ばあば）が送迎します。8月13日はウェルさんお休みのため、ばあばの家で過ごします。8月31日（月）の始業式は短縮授業となり、11:30下校予定です。</p>
 </div>
 </div>
 
