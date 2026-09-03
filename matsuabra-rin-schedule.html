@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>松原 凛 8月の下校予定</title>
+<title>松原 凛 9月の下校予定</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -18,77 +18,38 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
 }
-
-/* すりガラス共通 */
-.glass {
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
-.glass-dark {
-  background: rgba(255, 255, 255, 0.30);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* 土日祝 */
+.glass { background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.6); }
+.glass-dark { background: rgba(255, 255, 255, 0.30); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); }
 .row-sat { background-color: rgba(216,232,240,0.6); }
 .row-sun { background-color: rgba(240,220,216,0.6); }
 .row-holiday { background-color: rgba(240,220,216,0.6); }
 .text-sat { color: #3a6a8a; }
 .text-sun { color: #8a3828; }
 .text-holiday { color: #8a3828; }
-
-/* エフ（月）— くすみテラコッタ */
 .ef-dot { background-color: #b8736a; }
 .ef-text { color: #7a3d35; }
 .ef-header { background-color: #b8736a; }
 .ef-light { background-color: #f5e8e6; }
-
-/* ウェルハニーバン（火・木）— くすみセージ */
 .honey-dot { background-color: #6a9e88; }
 .honey-text { color: #2d6050; }
 .honey-header { background-color: #6a9e88; }
 .honey-light { background-color: #e4f0ea; }
-
-/* あるてみす（水・金）— くすみスレートブルー */
 .arte-dot { background-color: #7a8ab8; }
 .arte-text { color: #35408a; }
 .arte-header { background-color: #7a8ab8; }
 .arte-light { background-color: #e8ecf8; }
-
-/* ばあばの家 — くすみローズ */
-.baaba-dot { background-color: #b8768a; }
-.baaba-text { color: #8a3a52; }
-.baaba-header { background-color: #b8768a; }
-.baaba-light { background-color: #f5e8ec; }
-
-/* バッジ */
 .badge-ok { background-color: #c8e0c8; color: #2d5030; }
-.badge-mixed { background-color: #f0e0c0; color: #8a5a10; }
 .badge-ng { background-color: #f0d0cc; color: #7a3028; }
 .badge-early { background-color: #f0e8a0; color: #7a6010; }
 .badge-freetalk { background-color: #c8e8d8; color: #2d6045; }
-.badge-freetalk-day { background-color: #6a9e88; color: #ffffff; font-weight: bold; }
 .badge-hospital { background-color: #f0d8e8; color: #7a3060; }
-.row-freetalk-day { background-color: rgba(224,242,234,0.6); }
 .badge-short { background-color: #f5dca0; color: #8a5a10; }
 .badge-ceremony { background-color: #f0c890; color: #7a4a10; font-weight: bold; }
-
-/* 通院早退行 */
-.row-hospital { background-color: rgba(252,232,240,0.7); }
-
-/* 夏休み */
 .row-summer { background-color: rgba(255, 230, 170, 0.45); }
 .text-summer { color: #a86a10; }
-
-/* html2canvas PDF出力用 */
 .flex { display: flex !important; }
 .inline-flex { display: inline-flex !important; }
 .items-center { align-items: center !important; }
-.items-start { align-items: flex-start !important; }
 .justify-center { justify-content: center !important; }
 .justify-between { justify-content: space-between !important; }
 .flex-1 { flex: 1 1 0% !important; }
@@ -100,27 +61,21 @@ body {
 .gap-2 { gap: 0.5rem !important; }
 .gap-3 { gap: 0.75rem !important; }
 img, svg { vertical-align: middle; }
-
-.w-2 { width: 0.5rem !important; }
-.h-2 { height: 0.5rem !important; }
-.w-3 { width: 0.75rem !important; }
-.h-3 { height: 0.75rem !important; }
-.w-4 { width: 1rem !important; }
-.h-4 { height: 1rem !important; }
+.w-2 { width: 0.5rem !important; } .h-2 { height: 0.5rem !important; }
+.w-3 { width: 0.75rem !important; } .h-3 { height: 0.75rem !important; }
+.w-4 { width: 1rem !important; } .h-4 { height: 1rem !important; }
 .w-12 { width: 3rem !important; }
 .rounded-full { border-radius: 9999px !important; }
 span.rounded-full { display: inline-block !important; }
 .px-1\.5 { padding-left: 0.375rem !important; padding-right: 0.375rem !important; }
 .py-0\.5 { padding-top: 0.125rem !important; padding-bottom: 0.125rem !important; }
-.badge-ok, .badge-ng, .badge-freetalk, .badge-hospital { white-space: nowrap !important; line-height: 1.4 !important; }
 .text-xs { font-size: 0.75rem !important; line-height: 1rem !important; }
 .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
-
 @media print {
-@page { size: A4 portrait; margin: 12mm 10mm; }
-.no-print { display: none !important; }
-* { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-body { background: white; padding: 0; }
+  @page { size: A4 portrait; margin: 12mm 10mm; }
+  .no-print { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: white; padding: 0; }
 }
 </style>
 </head>
@@ -128,566 +83,528 @@ body { background: white; padding: 0; }
 
 <div class="flex flex-col items-center mb-2">
 <div class="flex items-center gap-2">
-<img src="https://chairo-chairo.github.io/rin-schedule/boku.png" alt="" class="h-16 w-auto object-contain shrink-0">
+<img src="boku.png" alt="" class="h-16 w-auto object-contain shrink-0">
 <div class="text-left">
-<h1 class="text-xl font-bold text-gray-700">松原 凛 8月の下校予定</h1>
-<p class="text-gray-400 text-xs mt-0.5">2026年8月 津島小学校 夏休み（8/31始業式）</p>
+<h1 class="text-xl font-bold text-gray-700">松原 凛 9月の下校予定</h1>
+<p class="text-gray-400 text-xs mt-0.5">2026年9月 津島小学校 5時間授業</p>
 </div>
 </div>
 </div>
 
-<!-- 注意事項 -->
-<div class="max-w-2xl mx-auto mb-4 rounded-r-xl px-4 py-3 text-xs font-bold border-l-4 glass"
-style="border-color:#c8a050; color:#7a5a1a;">
-<svg class="inline-block align-middle shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L21 20H3L12 3Z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18.5" r="0.6" fill="currentColor" stroke="none"/></svg> 注意事項：教室まで迎えにきてください
+<div class="max-w-2xl mx-auto mb-4 rounded-r-xl px-4 py-3 text-xs font-bold border-l-4 glass" style="border-color:#c8a050; color:#7a5a1a;">
+⚠️ 注意事項：教室まで迎えにきてください
 </div>
 
-<!-- 下校時間ルール -->
-<div class="max-w-2xl mx-auto mb-5 grid grid-cols-1 gap-3 text-xs">
-<div class="rounded-xl p-3 glass" style="border-color:#e8c85a;">
-<p class="font-bold mb-1" style="color:#8a6a10;">🏖️ 7/18（土）〜8/30（日）夏休み</p>
-<p style="color:#8a6a10;">学校の下校時間ルールはありません。8月中は下記の日程で放課後等デイサービスを利用します。</p>
+<div class="max-w-2xl mx-auto mb-5 grid grid-cols-2 gap-3 text-xs">
+<div class="rounded-xl p-3 glass" style="border-color:#b0c8d8;">
+<p class="font-bold mb-1" style="color:#3a6a8a;">月・火・木・金（5時間授業）</p>
+<p>下校時間：<span class="font-bold" style="color:#b06030;">14:35</span></p>
+<p>お迎え：<span class="font-bold" style="color:#b06030;">14:40〜14:50</span></p>
 </div>
-<div class="rounded-xl p-3 glass" style="border-color:#f0c8a0;">
-<p class="font-bold mb-1" style="color:#b06030;">📚 8/31（月）始業式　短縮授業</p>
-<p style="color:#b06030;">下校 <span class="font-bold">11:30</span>　お迎え <span class="font-bold">11:20</span></p>
-</div>
+<div class="rounded-xl p-3 glass" style="border-color:#b0a8d8;">
+<p class="font-bold mb-1" style="color:#35408a;">水曜日（5時間授業）</p>
+<p>下校時間：<span class="font-bold" style="color:#b06030;">14:20</span></p>
+<p>お迎え：<span class="font-bold" style="color:#b06030;">14:25〜14:30</span></p>
 </div>
 
-<!-- ボタン -->
+</div>
+
 <div class="no-print flex gap-3 justify-center mb-5">
-<button onclick="window.print()"
-class="py-2 px-5 text-white font-bold rounded-xl text-sm transition-colors"
-style="background:#7a8a98;" onmouseover="this.style.background='#6a7a88'" onmouseout="this.style.background='#7a8a98'">
-<svg class="inline-block align-middle mr-1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> 印刷する
-</button>
-<button id="pdf-btn" onclick="downloadPDF()"
-class="py-2 px-5 text-white font-bold rounded-xl text-sm transition-colors"
-style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmouseout="this.style.background='#7a7ab0'">
-<svg class="inline-block align-middle mr-1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg> PDFを保存
-</button>
+<button onclick="window.print()" class="py-2 px-5 text-white font-bold rounded-xl text-sm transition-colors" style="background:#7a8a98;" onmouseover="this.style.background='#6a7a88'" onmouseout="this.style.background='#7a8a98'">🖨️ 印刷する</button>
+<button id="pdf-btn" onclick="downloadPDF()" class="py-2 px-5 text-white font-bold rounded-xl text-sm transition-colors" style="background:#7a7ab0;" onmouseover="this.style.background='#6a6aa0'" onmouseout="this.style.background='#7a7ab0'">📄 PDFを保存</button>
 </div>
 
-<!-- 凡例 -->
 <div class="max-w-2xl mx-auto mb-3 flex flex-wrap gap-3 text-xs text-gray-500">
 <span class="flex items-center gap-1.5"><span class="inline-block w-4 h-3 rounded" style="background:#d8e8f0; border:1px solid #b0c8d8;"></span>土曜日</span>
 <span class="flex items-center gap-1.5"><span class="inline-block w-4 h-3 rounded" style="background:#f0dcd8; border:1px solid #d8c0bc;"></span>日曜・祝日</span>
-<span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full ef-dot"></span>きらめき（月）</span>
+<span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full ef-dot"></span>放課後デイ エフ（月）</span>
 <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full honey-dot"></span>ウェルハニーバン（火・木）</span>
 <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full arte-dot"></span>あるてみす（水・金）</span>
-<span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full baaba-dot"></span>ばあばの家</span>
 </div>
 
-<!-- メインリスト -->
 <div class="max-w-2xl mx-auto glass rounded-2xl shadow-sm overflow-hidden mb-6">
-<div class="flex items-center gap-2 px-4 py-3 text-white font-bold text-sm" style="background:rgba(106,126,150,0.75); backdrop-filter:blur(8px);">
-<svg class="inline-block align-middle mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11L12 4L21 11V21"/><line x1="3" y1="21" x2="21" y2="21"/><rect x="9" y="15" width="6" height="6"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="12" y1="7" x2="12" y2="11"/></svg> 8月 スケジュール
-</div>
+<div class="flex items-center gap-2 px-4 py-3 text-white font-bold text-sm" style="background:rgba(106,126,150,0.75); backdrop-filter:blur(8px);">📅 9月 下校・お迎えスケジュール</div>
 
-<!-- 8/1 土 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sat leading-tight">8/1</div>
-<div class="text-xs font-bold text-sat">土</div>
-</div>
-<div class="text-sm font-bold text-sat">お休み</div>
-</div>
-
-<!-- 8/2 日 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sun leading-tight">8/2</div>
-<div class="text-xs font-bold text-sun">日</div>
-</div>
-<div class="text-sm font-bold text-sun">お休み</div>
-</div>
-
-<!-- 8/3 月 -->
+<!-- 9/1 火 -->
 <div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/3</div>
-<div class="text-xs font-bold text-gray-400">月</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full ef-dot shrink-0"></span>
-<span class="font-bold text-sm ef-text">きらめき</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
-</div>
-<div class="text-xs text-gray-400">※送り母親・迎え祖母</div>
-</div>
-</div>
-
-<!-- 8/4 火 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/4</div>
+<div class="text-base font-bold text-gray-700 leading-tight">9/1</div>
 <div class="text-xs font-bold text-gray-400">火</div>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
 <span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-early shrink-0">小学校早退</span>
 </div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">13:50</span></div>
 </div>
 </div>
 
-<!-- 8/5 水 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<!-- 9/2 水 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/5</div>
+<div class="text-base font-bold text-gray-700 leading-tight">9/2</div>
 <div class="text-xs font-bold" style="color:#35408a;">水</div>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
 <span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
 <span class="font-bold text-sm arte-text">あるてみす</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
 </div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:20</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:25〜14:30</span></div>
 </div>
 </div>
 
-<!-- 8/6 木 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<!-- 9/3 木 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/6</div>
+<div class="text-base font-bold text-gray-700 leading-tight">9/3</div>
 <div class="text-xs font-bold text-gray-400">木</div>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
-<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-mixed shrink-0">迎え無 / 送り有</span>
-</div>
-</div>
-</div>
-
-<!-- 8/7 金 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/7</div>
-<div class="text-xs font-bold text-gray-400">金</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
-<span class="font-bold text-sm arte-text">あるてみす</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
-</div>
-</div>
-</div>
-
-<!-- 8/8 土 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sat leading-tight">8/8</div>
-<div class="text-xs font-bold text-sat">土</div>
-</div>
-<div class="text-sm font-bold text-sat">お休み</div>
-</div>
-
-<!-- 8/9 日 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sun leading-tight">8/9</div>
-<div class="text-xs font-bold text-sun">日</div>
-</div>
-<div class="text-sm font-bold text-sun">お休み</div>
-</div>
-
-<!-- 8/10 月 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/10</div>
-<div class="text-xs font-bold text-gray-400">月</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
 <span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
 <span class="font-bold text-sm honey-text">ウェルハニーバン</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
+
 </div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
 </div>
 </div>
 
-<!-- 8/11 火 -->
+<!-- 9/4 金 -->
 <div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/11</div>
-<div class="text-xs font-bold text-gray-400">火</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
-<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
-</div>
-</div>
-</div>
-
-<!-- 8/12 水 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/12</div>
-<div class="text-xs font-bold" style="color:#35408a;">水</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
-<span class="font-bold text-sm arte-text">あるてみす</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
-</div>
-</div>
-</div>
-
-<!-- 8/13 木（ウェルさんお休み） -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/13</div>
-<div class="text-xs font-bold text-gray-400">木</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full baaba-dot shrink-0"></span>
-<span class="font-bold text-sm baaba-text">ばあばの家</span>
-</div>
-<div class="text-xs text-gray-400">ウェルさんお休みのため</div>
-</div>
-</div>
-
-<!-- 8/14 金 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/14</div>
+<div class="text-base font-bold text-gray-700 leading-tight">9/4</div>
 <div class="text-xs font-bold text-gray-400">金</div>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
 <span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
 <span class="font-bold text-sm arte-text">あるてみす</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
 </div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
 </div>
 </div>
 
-<!-- 8/15 土 -->
+<!-- 9/5 土 -->
 <div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sat leading-tight">8/15</div>
+<div class="text-base font-bold text-sat leading-tight">9/5</div>
 <div class="text-xs font-bold text-sat">土</div>
 </div>
 <div class="text-sm font-bold text-sat">お休み</div>
 </div>
 
-<!-- 8/16 日 -->
+<!-- 9/6 日 -->
 <div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sun leading-tight">8/16</div>
+<div class="text-base font-bold text-sun leading-tight">9/6</div>
 <div class="text-xs font-bold text-sun">日</div>
 </div>
 <div class="text-sm font-bold text-sun">お休み</div>
 </div>
 
-<!-- 8/17 月 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-400 leading-tight">8/17</div>
-<div class="text-xs font-bold text-gray-400">月</div>
-</div>
-<div class="text-sm text-gray-400">予定なし</div>
-</div>
-
-<!-- 8/18 火 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/18</div>
-<div class="text-xs font-bold text-gray-400">火</div>
-</div>
-<div class="text-sm font-bold text-gray-700">✈️ 米子旅行</div>
-</div>
-
-<!-- 8/19 水 -->
+<!-- 9/7 月 -->
 <div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
 <div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/19</div>
-<div class="text-xs font-bold" style="color:#35408a;">水</div>
-</div>
-<div class="text-sm font-bold text-gray-700">✈️ 米子旅行</div>
-</div>
-
-<!-- 8/20 木 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/20</div>
-<div class="text-xs font-bold text-gray-400">木</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
-<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-mixed shrink-0">迎え無 / 送り有</span>
-</div>
-</div>
-</div>
-
-<!-- 8/21 金 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-400 leading-tight">8/21</div>
-<div class="text-xs font-bold text-gray-400">金</div>
-</div>
-<div class="text-sm text-gray-400">予定なし</div>
-</div>
-
-<!-- 8/22 土 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sat leading-tight">8/22</div>
-<div class="text-xs font-bold text-sat">土</div>
-</div>
-<div class="text-sm font-bold text-sat">お休み</div>
-</div>
-
-<!-- 8/23 日 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sun leading-tight">8/23</div>
-<div class="text-xs font-bold text-sun">日</div>
-</div>
-<div class="text-sm font-bold text-sun">お休み</div>
-</div>
-
-<!-- 8/24 月 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/24</div>
-<div class="text-xs font-bold text-gray-400">月</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full ef-dot shrink-0"></span>
-<span class="font-bold text-sm ef-text">きらめき</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
-</div>
-</div>
-</div>
-
-<!-- 8/25 火 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/25</div>
-<div class="text-xs font-bold text-gray-400">火</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
-<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
-</div>
-</div>
-</div>
-
-<!-- 8/26 水 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/26</div>
-<div class="text-xs font-bold" style="color:#35408a;">水</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
-<span class="font-bold text-sm arte-text">あるてみす</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
-</div>
-</div>
-</div>
-
-<!-- 8/27 木 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/27</div>
-<div class="text-xs font-bold text-gray-400">木</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
-<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-mixed shrink-0">迎え無 / 送り有</span>
-</div>
-</div>
-</div>
-
-<!-- 8/28 金 -->
-<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/28</div>
-<div class="text-xs font-bold text-gray-400">金</div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-1.5 mb-1">
-<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
-<span class="font-bold text-sm arte-text">あるてみす</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
-</div>
-</div>
-</div>
-
-<!-- 8/29 土 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sat leading-tight">8/29</div>
-<div class="text-xs font-bold text-sat">土</div>
-</div>
-<div class="text-sm font-bold text-sat">お休み</div>
-</div>
-
-<!-- 8/30 日 -->
-<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-sun leading-tight">8/30</div>
-<div class="text-xs font-bold text-sun">日</div>
-</div>
-<div class="text-sm font-bold text-sun">お休み</div>
-</div>
-
-<!-- 8/31 月 始業式 -->
-<div class="flex items-center gap-3 px-3 py-3" style="background:rgba(255,255,255,0.2);">
-<div class="w-12 shrink-0 text-center">
-<div class="text-base font-bold text-gray-700 leading-tight">8/31</div>
+<div class="text-base font-bold text-gray-700 leading-tight">9/7</div>
 <div class="text-xs font-bold text-gray-400">月</div>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex items-center gap-1.5 mb-1 flex-wrap">
 <span class="w-2 h-2 rounded-full ef-dot shrink-0"></span>
-<span class="font-bold text-sm ef-text">きらめき</span>
+<span class="font-bold text-sm ef-text">放課後デイ エフ</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
-<span class="text-xs px-1.5 py-0.5 rounded-full badge-ceremony shrink-0">🎓 始業式</span>
+
 </div>
-<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">11:30</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">11:20</span></div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/8 火 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/8</div>
+<div class="text-xs font-bold text-gray-400">火</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
+<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-early shrink-0">小学校早退</span>
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">13:50</span></div>
+</div>
+</div>
+
+<!-- 9/9 水 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/9</div>
+<div class="text-xs font-bold" style="color:#35408a;">水</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
+<span class="font-bold text-sm arte-text">あるてみす</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:20</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:25〜14:30</span></div>
+</div>
+</div>
+
+<!-- 9/10 木 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/10</div>
+<div class="text-xs font-bold text-gray-400">木</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
+<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/11 金 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/11</div>
+<div class="text-xs font-bold text-gray-400">金</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
+<span class="font-bold text-sm arte-text">あるてみす</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/12 土 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-sat leading-tight">9/12</div>
+<div class="text-xs font-bold text-sat">土</div>
+</div>
+<div class="text-sm font-bold text-sat">お休み</div>
+</div>
+
+<!-- 9/13 日 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-sun leading-tight">9/13</div>
+<div class="text-xs font-bold text-sun">日</div>
+</div>
+<div class="text-sm font-bold text-sun">お休み</div>
+</div>
+
+<!-- 9/14 月 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-holiday">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-holiday leading-tight">9/14</div>
+<div class="text-xs font-bold text-holiday">月</div>
+</div>
+<div class="text-sm font-bold text-holiday">お休み</div>
+</div>
+
+<!-- 9/15 火 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/15</div>
+<div class="text-xs font-bold text-gray-400">火</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
+<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-early shrink-0">小学校早退</span>
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">13:50</span></div>
+</div>
+</div>
+
+<!-- 9/16 水 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/16</div>
+<div class="text-xs font-bold" style="color:#35408a;">水</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
+<span class="font-bold text-sm arte-text">あるてみす</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:20</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:25〜14:30</span></div>
+</div>
+</div>
+
+<!-- 9/17 木 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/17</div>
+<div class="text-xs font-bold text-gray-400">木</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
+<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/18 金 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/18</div>
+<div class="text-xs font-bold text-gray-400">金</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
+<span class="font-bold text-sm arte-text">あるてみす</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/19 土 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-sat leading-tight">9/19</div>
+<div class="text-xs font-bold text-sat">土</div>
+</div>
+<div class="text-sm font-bold text-sat">お休み</div>
+</div>
+
+<!-- 9/20 日 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-sun leading-tight">9/20</div>
+<div class="text-xs font-bold text-sun">日</div>
+</div>
+<div class="text-sm font-bold text-sun">お休み</div>
+</div>
+
+<!-- 9/21 月 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-holiday">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-holiday leading-tight">9/21</div>
+<div class="text-xs font-bold text-holiday">月</div>
+</div>
+<div class="text-sm font-bold text-holiday">お休み</div>
+</div>
+
+<!-- 9/22 火 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-holiday">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-holiday leading-tight">9/22</div>
+<div class="text-xs font-bold text-holiday">火</div>
+</div>
+<div class="text-sm font-bold text-holiday">お休み</div>
+</div>
+
+<!-- 9/23 水 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-holiday">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-holiday leading-tight">9/23</div>
+<div class="text-xs font-bold text-holiday">水</div>
+</div>
+<div class="text-sm font-bold text-holiday">お休み</div>
+</div>
+
+<!-- 9/24 木 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/24</div>
+<div class="text-xs font-bold text-gray-400">木</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
+<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/25 金 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/25</div>
+<div class="text-xs font-bold text-gray-400">金</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
+<span class="font-bold text-sm arte-text">あるてみす</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/26 土 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sat">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-sat leading-tight">9/26</div>
+<div class="text-xs font-bold text-sat">土</div>
+</div>
+<div class="text-sm font-bold text-sat">お休み</div>
+</div>
+
+<!-- 9/27 日 -->
+<div class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 row-sun">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-sun leading-tight">9/27</div>
+<div class="text-xs font-bold text-sun">日</div>
+</div>
+<div class="text-sm font-bold text-sun">お休み</div>
+</div>
+
+<!-- 9/28 月 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/28</div>
+<div class="text-xs font-bold text-gray-400">月</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full ef-dot shrink-0"></span>
+<span class="font-bold text-sm ef-text">放課後デイ エフ</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ng shrink-0">送迎なし</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:40〜14:50</span></div>
+</div>
+</div>
+
+<!-- 9/29 火 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.35);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/29</div>
+<div class="text-xs font-bold text-gray-400">火</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full honey-dot shrink-0"></span>
+<span class="font-bold text-sm honey-text">ウェルハニーバン</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-early shrink-0">小学校早退</span>
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:35</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">13:50</span></div>
+</div>
+</div>
+
+<!-- 9/30 水 -->
+<div class="flex items-center gap-3 px-3 py-3 border-b border-gray-100" style="background:rgba(255,255,255,0.2);">
+<div class="w-12 shrink-0 text-center">
+<div class="text-base font-bold text-gray-700 leading-tight">9/30</div>
+<div class="text-xs font-bold" style="color:#35408a;">水</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full arte-dot shrink-0"></span>
+<span class="font-bold text-sm arte-text">あるてみす</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full badge-ok shrink-0">送迎あり</span>
+
+</div>
+<div class="text-xs text-gray-400">下校 <span class="font-bold" style="color:#b06030;">14:20</span><span class="mx-1.5 text-gray-200">|</span>お迎え <span class="font-bold" style="color:#b06030;">14:25〜14:30</span></div>
 </div>
 </div>
 
 </div>
 
-<!-- 事業者連絡先 -->
 <div class="max-w-2xl mx-auto glass rounded-2xl shadow-sm overflow-hidden mb-6">
-<div class="flex items-center gap-2 px-4 py-3 text-white font-bold text-sm" style="background:rgba(106,158,136,0.75); backdrop-filter:blur(8px);">
-<svg class="inline-block align-middle mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="9" width="15" height="9" rx="2"/><path d="M16 13h3l3 3V10h-3"/><circle cx="5.5" cy="18.5" r="1.5"/><circle cx="13.5" cy="18.5" r="1.5"/></svg> 放課後デイ・日中一時支援 事業者一覧
-</div>
+<div class="flex items-center gap-2 px-4 py-3 text-white font-bold text-sm" style="background:rgba(106,158,136,0.75); backdrop-filter:blur(8px);">🚌 放課後デイ・日中一時支援 事業者一覧</div>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4">
-
-<!-- きらめき -->
 <div class="rounded-xl overflow-hidden shadow-sm">
-<div class="ef-header text-white text-center px-3 py-2">
-<div class="font-bold text-sm">月</div>
-<div class="text-xs font-medium opacity-90">きらめき</div>
-</div>
+<div class="ef-header text-white text-center px-3 py-2"><div class="font-bold text-sm">月</div><div class="text-xs font-medium opacity-90">放課後デイ エフ</div></div>
 <div class="bg-white border border-gray-100 border-t-0 rounded-b-xl p-3 text-xs space-y-1.5">
 <p class="font-bold" style="color:#b06030;">サービス提供時間：9:00 〜 19:00</p>
 <span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ng">送迎なし</span>
 <p class="text-gray-500">📞 <a href="tel:05017936568" class="underline underline-offset-2">050-1793-6568</a></p>
-<a href="https://www.google.com/maps/search/?api=1&query=岡山市北区今7丁目6-16" target="_blank" rel="noopener"
-class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
-<svg class="inline-block align-middle mr-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>岡山市北区今7丁目6-16 2階
-</a>
-</div>
-</div>
-
-<!-- ウェルハニーバン -->
+<a href="https://www.google.com/maps/search/?api=1&query=岡山市北区今7丁目6-16" target="_blank" rel="noopener" class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">📍岡山市北区今7丁目6-16 2階</a>
+</div></div>
 <div class="rounded-xl overflow-hidden shadow-sm">
-<div class="honey-header text-white text-center px-3 py-2">
-<div class="font-bold text-sm">火・木</div>
-<div class="text-xs font-medium opacity-90">ウェルハニーバン</div>
-</div>
+<div class="honey-header text-white text-center px-3 py-2"><div class="font-bold text-sm">火・木</div><div class="text-xs font-medium opacity-90">ウェルハニーバン</div></div>
 <div class="bg-white border border-gray-100 border-t-0 rounded-b-xl p-3 text-xs space-y-1.5">
 <p class="font-bold" style="color:#b06030;">サービス提供時間：14:00 〜 17:00</p>
-<div class="flex flex-col gap-0.5">
-<span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ok">火：送迎あり</span>
-<span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ng">木：送迎なし</span>
-</div>
+<div class="flex flex-col gap-0.5"><span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ok">火：送迎あり</span><span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ng">木：送迎なし</span></div>
 <p class="text-gray-500">📞 <a href="tel:0862303100" class="underline underline-offset-2">086-230-3100</a></p>
-<a href="https://www.google.com/maps/search/?api=1&query=岡山市北区東島田町2-7-10" target="_blank" rel="noopener"
-class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
-<svg class="inline-block align-middle mr-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>岡山市北区 東島田町2-7-10
-</a>
-</div>
-</div>
-
-<!-- あるてみす -->
+<a href="https://www.google.com/maps/search/?api=1&query=岡山市北区東島田町2-7-10" target="_blank" rel="noopener" class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">📍岡山市北区 東島田町2-7-10</a>
+</div></div>
 <div class="rounded-xl overflow-hidden shadow-sm">
-<div class="arte-header text-white text-center px-3 py-2">
-<div class="font-bold text-sm">水・金</div>
-<div class="text-xs font-medium opacity-90">あるてみす</div>
-</div>
+<div class="arte-header text-white text-center px-3 py-2"><div class="font-bold text-sm">水・金</div><div class="text-xs font-medium opacity-90">あるてみす</div></div>
 <div class="bg-white border border-gray-100 border-t-0 rounded-b-xl p-3 text-xs space-y-1.5">
 <p class="font-bold" style="color:#b06030;">サービス提供時間：9:00 〜 18:00</p>
 <span class="inline-block text-xs px-2 py-0.5 rounded-full badge-ok">送迎あり</span>
 <p class="text-gray-400">📞 確認中</p>
-<a href="https://www.google.com/maps/search/?api=1&query=岡山市中区中島306-1+CASA+NARITOMO" target="_blank" rel="noopener"
-class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">
-<svg class="inline-block align-middle mr-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>岡山市中区中島306-1<br>CASA NARITOMO 102
-</a>
+<a href="https://www.google.com/maps/search/?api=1&query=岡山市中区中島306-1+CASA+NARITOMO" target="_blank" rel="noopener" class="text-xs leading-tight underline underline-offset-2 block" style="color:#6a7e96;">📍岡山市中区中島306-1 CASA NARITOMO 102</a>
+</div></div>
 </div>
 </div>
 
-</div>
-</div>
-
-<!-- ママからの伝達 -->
 <div class="max-w-2xl mx-auto glass rounded-2xl shadow-sm overflow-hidden mb-6">
-<div class="px-4 py-3 text-white font-bold text-sm" style="background:rgba(184,131,106,0.75); backdrop-filter:blur(8px);">
-<svg class="inline-block align-middle mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg> ママからの伝達
-</div>
-<div class="px-4 py-4">
-<ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
-<li>7月18日〜8月30日までは夏休みとなります。</li>
-<li>夏休みの間はお弁当を持たせます。</li>
-<li>8月17日〜8月21日が母親の夏季休暇となります。</li>
-</ul>
-</div>
+<div class="px-4 py-3 text-white font-bold text-sm" style="background:rgba(184,131,106,0.75); backdrop-filter:blur(8px);">💌 ママからの伝達</div>
+<div class="px-4 py-4"><p class="text-sm text-gray-700">9月14日午後休み：国立医療センターへ通院の為</p></div>
 </div>
 
-<footer class="text-center text-gray-300 text-xs pb-4">
-作成日：2026年8月 ※内容に変更が生じた場合はご連絡ください
-</footer>
+<footer class="text-center text-gray-300 text-xs pb-4">作成日：2026年9月 ※内容に変更が生じた場合はご連絡ください</footer>
 
 <script>
 async function downloadPDF() {
-const btn = document.getElementById('pdf-btn');
-btn.textContent = '⏳ 生成中...';
-btn.disabled = true;
-
-const noPrintEls = document.querySelectorAll('.no-print');
-noPrintEls.forEach(el => { el.dataset.prevDisplay = el.style.display; el.style.display = 'none'; });
-
-await new Promise(r => setTimeout(r, 100));
-
-const canvas = await html2canvas(document.body, {
-scale: 2, useCORS: true, logging: false, backgroundColor: '#f0ece6'
-});
-
-noPrintEls.forEach(el => { el.style.display = el.dataset.prevDisplay || ''; });
-
-const { jsPDF } = window.jspdf;
-const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-const pageW = pdf.internal.pageSize.getWidth();
-const pageH = pdf.internal.pageSize.getHeight();
-const imgH = (canvas.height * pageW) / canvas.width;
-const imgData = canvas.toDataURL('image/jpeg', 0.92);
-
-let remaining = imgH, srcY = 0, firstPage = true;
-while (remaining > 0) {
-if (!firstPage) pdf.addPage();
-pdf.addImage(imgData, 'JPEG', 0, -srcY, pageW, imgH);
-srcY += pageH;
-remaining -= pageH;
-firstPage = false;
-}
-
-pdf.save('凛くん8月下校予定.pdf');
-btn.textContent = '📄 PDFを保存';
-btn.disabled = false;
+  const btn = document.getElementById('pdf-btn');
+  btn.textContent = '⏳ 生成中...';
+  btn.disabled = true;
+  const noPrintEls = document.querySelectorAll('.no-print');
+  noPrintEls.forEach(el => { el.dataset.prevDisplay = el.style.display; el.style.display = 'none'; });
+  await new Promise(r => setTimeout(r, 100));
+  const canvas = await html2canvas(document.body, { scale: 2, useCORS: true, logging: false, backgroundColor: '#f0ece6' });
+  noPrintEls.forEach(el => { el.style.display = el.dataset.prevDisplay || ''; });
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const pageW = pdf.internal.pageSize.getWidth();
+  const pageH = pdf.internal.pageSize.getHeight();
+  const imgH = (canvas.height * pageW) / canvas.width;
+  const imgData = canvas.toDataURL('image/jpeg', 0.92);
+  let remaining = imgH, srcY = 0, firstPage = true;
+  while (remaining > 0) {
+    if (!firstPage) pdf.addPage();
+    pdf.addImage(imgData, 'JPEG', 0, -srcY, pageW, imgH);
+    srcY += pageH;
+    remaining -= pageH;
+    firstPage = false;
+  }
+  pdf.save('凛9月下校予定.pdf');
+  btn.textContent = '📄 PDFを保存';
+  btn.disabled = false;
 }
 </script>
 
