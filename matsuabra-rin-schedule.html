@@ -12,9 +12,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 body {
-  background-image: url('night-sky.jpg');
-  background-size: cover;
-  background-position: left top;
+background-color: #f4f1fb;
+  background-image:
+    radial-gradient(ellipse 55% 60% at 8% 0%, rgba(250,205,225,0.95) 0%, rgba(250,205,225,0) 100%),
+    radial-gradient(ellipse 55% 60% at 0% 100%, rgba(150,205,240,0.95) 0%, rgba(150,205,240,0) 100%),
+    radial-gradient(ellipse 50% 55% at 100% 0%, rgba(160,205,240,0.95) 0%, rgba(160,205,240,0) 100%),
+    radial-gradient(ellipse 40% 45% at 45% 100%, rgba(205,245,240,0.9) 0%, rgba(205,245,240,0) 100%),
+    linear-gradient(135deg, #f7ecf6 0%, #f1f1fb 50%, #eef7fd 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
